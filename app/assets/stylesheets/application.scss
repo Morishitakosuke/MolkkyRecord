@@ -1,4 +1,15 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap';
 @import 'static_pages';
+@import 'layouts';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x:hidden
+}
 
 .mw-md {
   max-width: 576px;

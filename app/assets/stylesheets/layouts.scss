@@ -1,0 +1,55 @@
+// ヘッダー
+
+.nav-parent {
+  height: 85px;
+}
+
+.nav-items {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+a {
+  font-family: MS UI Gothic;
+}
+
+ul {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #f79314;
+}
+
+.header-nav-link {
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.header-item {
+  padding: 3px 0;
+  margin-left: 10px;
+}
+
+// フラッシュ用
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}

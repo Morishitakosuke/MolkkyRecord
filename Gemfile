@@ -15,6 +15,9 @@ gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '3.4.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
