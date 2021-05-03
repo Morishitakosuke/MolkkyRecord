@@ -2,6 +2,7 @@ ja:
   activerecord:
     attributes:
       user:
+        username: ユーザーネーム
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -101,6 +102,7 @@ ja:
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
       new:
+        do_sign_up: 新規登録する
         sign_up: 新規登録
       signed_up: 新規登録登録が完了しました。
       signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
@@ -121,9 +123,9 @@ ja:
         didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか？
         didn_t_receive_unlock_instructions: アカウントのロック解除方法のメールを受け取っていませんか？
         forgot_your_password: パスワードを忘れましたか？
-        sign_in: ログイン
+        sign_in: ログインページへ
         sign_in_with_provider: "%{provider}でログイン"
-        sign_up: アカウント登録
+        sign_up: 新規登録ページへ
       minimum_password_length: "（%{count}字以上）"
     unlocks:
       new:
