@@ -1,0 +1,13 @@
+<div class="profile">
+  <%= link_to edit_user_registration_path do %>
+    <% if @user.image.present? %>
+      <img src=<%= @user.image %> class="icon_image">
+    <% else %>
+      <img src="/assets/default.png" class="icon_image">
+    <% end %>
+    <div class="profile-contents">
+      <h3><%= @user.username %></h3>
+  <% end %>
+      <p><span>自己紹介：</span><%= @user.introduction %></p>
+    </div>
+</div>
