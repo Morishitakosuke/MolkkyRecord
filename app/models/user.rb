@@ -4,4 +4,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { maximum: 12 }
   validates :introduction, length: { maximum: 250 }
+
+  mount_uploader :image, ImageUploader
 end
