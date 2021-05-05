@@ -12,17 +12,17 @@
 
   <div class="form-group mt-5">
     <%= f.label :image %>
-    <%= f.file_field :image, accept: "image/jpeg, image/png, image/jpg", autocomplete: "image" %>
+    <%= f.file_field :image, accept: "image/jpeg, image/png, image/jpg", autocomplete: "image", class: 'form-control border-0' %>
   </div>
 
   <div class="form-group mt-5">
     <%= f.label :username %>
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", required: true %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", required: true, class: 'form-control' %>
   </div>
   
   <div class="form-group mt-5">
-    <%= f.label :introduction %>
-    <%= f.text_area :production, autofocus: true, autocomplete: "production" %>
+    <%= f.label :production %>
+    <%= f.text_area :production, autofocus: true, autocomplete: 'production', class: 'form-control' %>
   </div>
 
   <div class="form-group mt-5">

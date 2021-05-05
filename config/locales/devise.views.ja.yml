@@ -3,6 +3,8 @@ ja:
     attributes:
       user:
         username: ユーザーネーム
+        image: ユーザー画像
+        production: 自己紹介
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -102,8 +104,6 @@ ja:
         unhappy: 気に入りません
         update: 更新する
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
-        image: ユーザー画像
-        production: 自己紹介
       new:
         do_sign_up: 新規登録する
         sign_up: 新規登録
