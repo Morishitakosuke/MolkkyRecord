@@ -4,7 +4,7 @@ ja:
       user:
         username: ユーザーネーム
         image: ユーザー画像
-        production: 自己紹介
+        introduction: 自己紹介
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

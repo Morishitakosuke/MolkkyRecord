@@ -1,5 +1,5 @@
 <h2 class="mt-5 pt-5 text-center"><%= "#{@user.username} さんの編集ページ" %></h2>
-<div class="edit-profile text-center">
+<div class="text-center">
   <% if @user.image.present? %>
     <img src=<%= @user.avatar %> class="icon_image">
   <% else %>
@@ -21,8 +21,8 @@
   </div>
   
   <div class="form-group mt-5">
-    <%= f.label :production %>
-    <%= f.text_area :production, autofocus: true, autocomplete: 'production', class: 'form-control' %>
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction, autofocus: true, autocomplete: 'introduction', class: 'form-control' %>
   </div>
 
   <div class="form-group mt-5">
