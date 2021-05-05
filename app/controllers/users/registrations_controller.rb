@@ -57,6 +57,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
   end
 
+  # プロフィール更新時にパスワード無しで変更できるようにするため
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
+
   def after_update_path_for(resource)
     user_path(@user.id)
   end
