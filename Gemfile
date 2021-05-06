@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '3.4.1'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
