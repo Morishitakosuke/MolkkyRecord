@@ -1,17 +1,15 @@
-<div class="main-contents">
-  <%= link_to "/users/#{post.id}" do %>
-    <div class="mt-5 text-center">
-      <h3 class=""><%= post.user.username %></h3>
-      <h6 class="text-danger">
-      </h6> 
-    </div>
-    <div class="post-contents">
-      <% if post.image.present? %>
-        <img src=<%= post.image %> class="image-post">
-      <% else %>
-        <img src="/assets/noimage.png" class="image-post">
-      <% end %>
-    </div>
-  <% end %>
-  <%= time_ago_in_words(post.created_at) %>
+<div class="container-fluid py-4 mw-md">
+  <div class="border-bottom">
+    <%= link_to "/users/#{post.id}" do %>
+      <div class="post-contents">
+        <% if post.image.present? %>
+          <img src=<%= post.image %> class="post_image">
+        <% else %>
+          <img src="/assets/noimage.png" class="post_image">
+        <% end %>
+        <p class="text-dark ml-3"><%= post.content %></p> 
+      </div>
+      <p class="time text-right"><%= time_ago_in_words(post.created_at) %>前</p>
+    <% end %>
+  </div>
 </div>
