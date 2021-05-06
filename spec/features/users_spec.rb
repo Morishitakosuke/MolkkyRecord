@@ -15,7 +15,7 @@ RSpec.feature "Users", type: :feature do
       fill_in 'user_password_confirmation', with: @user.password_confirmation
       expect { click_on('新規登録する') }.to change(User, :count).by(1)
       expect(page).to have_link 'お知らせ', href: '#'
-      expect(page).to have_link '投稿', href: '#'
+      expect(page).to have_link '投稿', href: new_post_path
       expect(page).to have_content @user.username
       expect(page).to have_link 'ログアウト'
       click_on 'ログアウト'
