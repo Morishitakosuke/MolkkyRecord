@@ -11,3 +11,14 @@
       <p><span>自己紹介：</span><%= @user.introduction %></p>
     </div>
 </div>
+
+
+<% if @user.posts.any? %>
+  <h3 class="text-center mt-3">投稿一覧 (<%= @user.posts.count %>)</h3>
+  <ol class="posts">
+    <%= render @posts %>
+  </ol>
+  <div class="text-center">
+    <%= paginate @posts %>
+  </div>
+<% end %>
