@@ -14,7 +14,7 @@
             <%= link_to "#{current_user.username}", user_path(current_user.id), class: "text-white nav-link header-nav-link" %>
           </li>
           <li class="nav-item header-item link">
-            <%= link_to "投稿", "#", class: "text-white nav-link header-nav-link" %>
+            <%= link_to "投稿", new_post_path, class: "text-white nav-link header-nav-link" %>
           </li>
           <li class="nav-item header-item link">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white nav-link header-nav-link" %>

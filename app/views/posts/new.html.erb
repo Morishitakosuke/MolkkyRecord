@@ -1,0 +1,16 @@
+<div class="container-fluid py-4 mw-md">
+  <%= form_with(model: @post, local: true) do |f| %>
+    <div class="form-group pt-5 mt-5">
+      <h4>画像</h4>
+      <%= f.file_field :image, accept: "image/jpeg, image/png, image/jpg", class: 'form-control border-0' %>
+    </div>
+    <div class="form-group mt-5">
+      <h4>つぶやき</h4>
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+    <div class="form-group mt-5 text-center">
+      <%= f.submit "投稿する", class: 'btn p-2 pl-5 pr-5 text-white' %>
+    </div>
+    <%= link_to t('戻る'), :back, class: 'text-center text-dark' %>
+  <% end %>
+</div>

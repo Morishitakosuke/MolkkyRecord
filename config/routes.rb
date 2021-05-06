@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
   }
   resources :users, only: [:show]
+  resources :posts
 end
