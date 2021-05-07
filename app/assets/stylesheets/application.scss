@@ -30,3 +30,9 @@ html {
 .alert-alert {
   @extend .alert-danger;
 }
+
+// kaminari
+
+.pagination {
+  justify-content: center;
+}
