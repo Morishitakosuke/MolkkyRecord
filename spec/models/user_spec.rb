@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   describe "signup" do
     it "全て入力されていれば登録できること" do

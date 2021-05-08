@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Post do
   before do
-    @post = FactoryBot.build(:post)
+    @post = FactoryBot.create(:post)
     @post.image = fixture_file_upload('app/assets/images/test.jpg')
   end
 
