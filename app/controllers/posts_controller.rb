@@ -15,6 +15,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = "つぶやきを更新しました！"
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:success] = "つぶやきを削除しました！"
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def post_params
