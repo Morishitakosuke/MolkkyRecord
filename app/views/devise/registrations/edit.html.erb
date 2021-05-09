@@ -1,7 +1,7 @@
 <h2 class="mt-5 pt-5 text-center"><%= "#{@user.username} さんの編集ページ" %></h2>
 <div class="text-center">
   <% if @user.image.present? %>
-    <img src=<%= @user.avatar %> class="icon_image">
+    <img src=<%= @user.image %> class="icon_image">
   <% else %>
     <img src="/assets/default.png" class="icon_image">
   <% end %>

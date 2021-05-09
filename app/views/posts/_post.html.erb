@@ -1,6 +1,6 @@
 <div class="container-fluid py-4 mw-md">
   <div class="border-bottom">
-    <%= link_to "/users/#{post.id}" do %>
+    <%= link_to "/posts/#{post.id}" do %>
       <div class="post-contents">
         <% if post.image.present? %>
           <img src=<%= post.image %> class="post_image">
