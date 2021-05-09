@@ -1,0 +1,19 @@
+<div class="container-fluid py-4 mw-md">
+  <div class="text-center mt-5">
+  <% if @post.image.present? %>
+    <img src=<%= @post.image %> class="show-image">
+  <% else %>
+    <img src="/assets/noimage.png" class="show-image">
+  <% end %>
+  </div>
+  <div class="text-center mb-3 border-bottom">
+    <h4><%= @post.content %></h4>
+    <% if current_user&.id == @post.user_id %>
+      <div class="mt-5">
+        <%= link_to "編集", edit_post_path(@post), class: "text-dark" %>
+        <%= link_to "削除", post_path(@post), method: :delete, class: "text-dark" %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to t('戻る'), :back, class: 'text-center text-dark' %>
+</div>
