@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment  = Comment.new
+    @comments = @post.comments.page(params[:page]).per(6).order('updated_at DESC')
   end
 
   def edit
