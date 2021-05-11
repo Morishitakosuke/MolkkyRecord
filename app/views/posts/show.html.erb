@@ -15,5 +15,27 @@
       </div>
     <% end %>
   </div>
+  <% if @comments %>
+    <h3 class="mt-5 text-center mb-5">コメント</h3>
+    <% @comments.each do |c| %>
+      <div class="border-bottom">
+        <p><span>ユーザー名： </span><%= link_to c.user.username, c.user %></p>
+        <p><span>コメント： </span><%= c.content %></p>
+      </div>
+      <br />
+    <% end %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@post, @comment], local: true) do |f| %>
+      <%= f.text_area :content, class: "form-control", rows: 5 %>
+      <div class="text-center mt-3">
+        <%= button_tag type: "submit", class: "btn p-2 pl-5 pr-5 text-white" do %>
+          コメントする
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
   <%= link_to t('戻る'), :back, class: 'text-center text-dark' %>
 </div>
