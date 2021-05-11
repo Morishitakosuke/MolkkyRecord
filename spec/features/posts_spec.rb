@@ -1,6 +1,5 @@
 require 'rails_helper'
-
-RSpec.describe '新規投稿', type: :feature do
+RSpec.feature 'Posts', type: :feature do
   before do
     @user = FactoryBot.create(:user)
     @post = FactoryBot.build(:post)
@@ -12,11 +11,10 @@ RSpec.describe '新規投稿', type: :feature do
       visit new_user_session_path
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
-      click_button('ログインする') 
+      click_button('ログインする')
       # 「投稿」をクリックし、新規投稿ページへ遷移する
       first(:link, '投稿').click
       expect(current_path).to eq new_post_path
-      image_path = Rails.root.join('app/assets/images/test.jpg')
       fill_in 'post_content', with: @post.content
       # 投稿するとPostモデルのカウントが1上がる
       expect { click_on('投稿する') }.to change(Post, :count).by(1)
@@ -25,6 +23,7 @@ RSpec.describe '新規投稿', type: :feature do
       expect(page).to have_content(@post.content)
     end
   end
+
   context '新規投稿ができないとき' do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
@@ -37,7 +36,7 @@ RSpec.describe '新規投稿', type: :feature do
       visit new_user_session_path
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
-      click_button('ログインする') 
+      click_button('ログインする')
       # 「投稿」をクリックし、新規投稿ページへ遷移する
       first(:link, '投稿').click
       expect(current_path).to eq new_post_path
@@ -56,13 +55,14 @@ RSpec.describe '投稿内容の編集', type: :feature do
     @user = FactoryBot.build(:user)
     @post = FactoryBot.create(:post)
   end
+
   context '投稿内容が編集できるとき' do
     it 'ログインしたユーザーは、自分が投稿した投稿内容を編集ができる' do
       # 投稿を投稿したユーザーでログインする
       visit new_user_session_path
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
-      click_button('ログインする') 
+      click_button('ログインする')
       # 投稿の詳細ページへ遷移する
       visit post_path(@post.id)
       # 編集するボタンをクリックし、編集ページへ遷移する
@@ -71,7 +71,6 @@ RSpec.describe '投稿内容の編集', type: :feature do
       # すでに投稿済みの内容がフォームに入っている
       expect(find('#post_content').value).to eq @post.content
       # 投稿内容を編集する
-      image_path = Rails.root.join('app/assets/images/test.jpg')
       fill_in 'post_content', with: "#{@post.content}+編集OK!"
       # 編集してもPostモデルのカウントは変わらない
       expect { click_on('更新する') }.to change(Post, :count).by(0)
@@ -79,6 +78,7 @@ RSpec.describe '投稿内容の編集', type: :feature do
       expect(page).to have_content("#{@post.content}+編集OK!")
     end
   end
+
   context '投稿内容が編集できないとき' do
     it 'ログインしていないと、投稿の編集画面には遷移できない' do
       # トップページにいる
