@@ -21,6 +21,9 @@
       <div class="border-bottom">
         <p><span class="comment-contents">ユーザー名：</span> <%= link_to c.user.username, c.user, class: "text-dark" %></p>
         <p><span class="comment-contents">コメント：</span> <%= c.content %></p>
+          <% if current_user&.id == c.user_id %>
+            <p class="text-right"><%= link_to "削除", post_comment_path(@post, c), method: :delete, class: "text-dark" %></p>
+          <% end %>
       </div>
       <br />
     <% end %>
