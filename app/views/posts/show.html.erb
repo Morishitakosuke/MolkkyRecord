@@ -27,6 +27,9 @@
       </div>
       <br />
     <% end %>
+    <div class="text-center">
+    <%= paginate @comments %>
+  </div>
   <% end %>
 
   <% if user_signed_in? %>
