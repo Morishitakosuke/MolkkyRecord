@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   before_action :post_current_user, only: [:edit, :update, :destroy]
 
+  def index
+    @posts = Post.page(params[:page]).per(6).order('updated_at DESC')
+  end
+
   def new
     @post = Post.new
   end
