@@ -7,7 +7,7 @@
   <% end %>
   </div>
   <div class="text-center pb-3 mb-3 border-bottom">
-    <h4><%= @post.content %></h4>
+    <h4 class="mt-5"><%= @post.content %></h4>
     <% if current_user&.id == @post.user_id %>
       <div class="mt-5">
         <%= link_to "編集", edit_post_path(@post), class: "text-dark" %>
@@ -19,8 +19,8 @@
     <h3 class="mt-5 text-center mb-5">コメント</h3>
     <% @comments.each do |c| %>
       <div class="border-bottom">
-        <p><span>ユーザー名： </span><%= link_to c.user.username, c.user %></p>
-        <p><span>コメント： </span><%= c.content %></p>
+        <p><span class="comment-contents">ユーザー名：</span> <%= link_to c.user.username, c.user, class: "text-dark" %></p>
+        <p><span class="comment-contents">コメント：</span> <%= c.content %></p>
       </div>
       <br />
     <% end %>
