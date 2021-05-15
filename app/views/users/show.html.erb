@@ -10,12 +10,12 @@
   <% end %>
       <p><%= link_to "フォロー(#{@user.followings.count})", following_user_path(@user), class: "text-dark" %></p>
       <p class="mb-3"><%= link_to "フォロワー(#{@user.followers.count})", followers_user_path(@user), class: "text-dark" %></p>
-      <% if user_signed_in? && @user != current_user%>
+      <% if user_signed_in? && @user != current_user %>
         <div id="follow_form">
           <% if current_user.following?(@user) %>
-            <%= render "unfollow" %>
+            <%= render 'users/unfollow' %>
           <% else %>
-            <%= render "follow" %>
+            <%= render 'users/follow' %>
           <% end %>
         </div>
       <% end %>
