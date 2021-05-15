@@ -20,9 +20,11 @@
         </div>
       <% end %>
     </div>
-    <div class="w-50 ml-5 my-auto mx-auto text-center">
-      <p><span class="profile-color">自己紹介：</span><%= @user.introduction %></p>
-    </div>
+    <% if @user.introduction.present? %>
+      <div class="w-50 ml-5 my-auto mx-auto text-center">
+        <p><span class="profile-color">自己紹介：</span><%= @user.introduction %></p>
+      </div>
+    <% end %>
 </div>
 
 <% if @user.posts.any? %>
