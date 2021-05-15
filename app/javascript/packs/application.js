@@ -25,5 +25,8 @@ import 'popper.js/dist/popper.js'
 import 'bootstrap/dist/js/bootstrap'
 import './bootstrap_custom.js'
 
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require jquery
 //= require_tree .
-

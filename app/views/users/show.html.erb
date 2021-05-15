@@ -8,8 +8,16 @@
     <div class="profile-contents">
       <h3 class="pt-5"><%= @user.username %></h3>
   <% end %>
-      <p><%= link_to "フォロー(#{@user.followings.count})", following_user_path(@user), class: "text-dark" %></p>
-      <p class="mb-3"><%= link_to "フォロワー(#{@user.followers.count})", followers_user_path(@user), class: "text-dark" %></p>
+      <div class="mb-1">
+        <strong id="followings">
+          <%= link_to "#{@user.followings.count}", following_user_path(@user), class: "text-dark" %>
+        </strong>フォロー中
+      </div>
+      <div class="mb-1">
+        <strong id="followers">
+          <%= link_to "#{@user.followers.count}", followers_user_path(@user), class: "text-dark" %>
+        </strong>フォロワー
+      </div>
       <% if user_signed_in? && @user != current_user %>
         <div id="follow_form">
           <% if current_user.following?(@user) %>
