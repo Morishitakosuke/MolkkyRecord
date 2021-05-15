@@ -42,10 +42,23 @@ a {
   background: linear-gradient(transparent 60%, rgb(250, 144, 0));
 }
 
+// follow_form
+.follow-action {
+  margin: 30px 0 0 30px;
+}
+
 @media (max-width: 480px) {
   .profile {
     display: flex;
     flex-direction: column;
+  }
+
+  .status {
+    margin: 0 auto;
+  }
+
+  .icon_image {
+    margin: 10px 0 0 0;
   }
 
   a {
@@ -54,5 +67,9 @@ a {
 
   .profile-contents {
     margin: 0 auto;
+  }
+
+  .follow-action {
+    margin: 10px 0 0 0;
   }
 }
