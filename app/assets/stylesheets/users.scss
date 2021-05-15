@@ -24,7 +24,7 @@ a {
 }
 
 .profile-contents {
-  max-width: 300px;
+  max-width: 400px;
   flex-direction: column;
   margin: auto 0 auto 20px;
 
@@ -35,9 +35,24 @@ a {
 
   p {
     margin-bottom: 5px;
-    
-    span {
-      background: linear-gradient(transparent 60%, rgb(250, 144, 0));
-    }
+  }
+}
+
+.profile-color {
+  background: linear-gradient(transparent 60%, rgb(250, 144, 0));
+}
+
+@media (max-width: 480px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .profile-contents {
+    margin: 0 auto;
   }
 }

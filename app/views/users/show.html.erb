@@ -6,9 +6,22 @@
       <img src="/assets/default.png" class="icon_image">
     <% end %>
     <div class="profile-contents">
-      <h3><%= @user.username %></h3>
+      <h3 class="pt-5"><%= @user.username %></h3>
   <% end %>
-      <p><span>自己紹介：</span><%= @user.introduction %></p>
+      <p><%= link_to "フォロー(#{@user.followings.count})", following_user_path(@user), class: "text-dark" %></p>
+      <p class="mb-3"><%= link_to "フォロワー(#{@user.followers.count})", followers_user_path(@user), class: "text-dark" %></p>
+      <% if user_signed_in? && @user != current_user%>
+        <div id="follow_form">
+          <% if current_user.following?(@user) %>
+            <%= render "unfollow" %>
+          <% else %>
+            <%= render "follow" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="w-50 ml-5 my-auto mx-auto text-center">
+      <p><span class="profile-color">自己紹介：</span><%= @user.introduction %></p>
     </div>
 </div>
 
