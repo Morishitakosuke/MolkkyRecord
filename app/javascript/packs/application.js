@@ -24,6 +24,7 @@ import "jquery/dist/jquery.js"
 import "popper.js/dist/popper.js"
 import "bootstrap/dist/js/bootstrap"
 import "./bootstrap_custom.js"
+import '@fortawesome/fontawesome-free/js/all';
 
 //= require rails-ujs
 //= require activestorage
