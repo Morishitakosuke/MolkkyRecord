@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <% if current_user.already_liked?(@post) %>
+    <%= button_to post_like_path(@post), class: "like-btn", method: :delete do %>
+      <span><i class="fas fa-heart"></i></span>
+    <% end %>
+  <% else %>
+    <%= button_to post_likes_path(@post), class: "like-btn" do %>
+      <span><i class="far fa-heart"></i></span>
+    <% end %>
+  <% end %>
+  <span><%= @post.likes.count %></span>
+<% end %>
