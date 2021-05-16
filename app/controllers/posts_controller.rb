@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(10).order("updated_at DESC")
+    @like = Like.new
   end
 
   def edit
