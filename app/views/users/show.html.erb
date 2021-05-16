@@ -15,12 +15,12 @@
     <% end %>
     <div class="mb-1">
       <strong id="followings">
-        <%= link_to "#{@user.followings.count}", following_user_path(@user), class: "text-dark" %>
+        <%= "#{@user.followings.count}" %>
       </strong>フォロー中
     </div>
     <div class="mb-1">
       <strong id="followers">
-        <%= link_to "#{@user.followers.count}", followers_user_path(@user), class: "text-dark" %>
+        <%= "#{@user.followers.count}" %>
       </strong>フォロワー
     </div>
   </div>
