@@ -8,7 +8,9 @@
   </div>
   <div class="text-center pb-3 mb-3 border-bottom">
     <h4 class="mt-5"><%= @post.content %></h4>
-    <%= render "posts/like" %>
+    <span class="like-<%= @post.id %>">
+      <%= render "posts/like" %>
+    </span>
     <% if current_user&.id == @post.user_id %>
       <div class="mt-5">
         <%= link_to "編集", edit_post_path(@post), class: "text-dark" %>

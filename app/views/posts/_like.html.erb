@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
   <% if current_user.already_liked?(@post) %>
-    <%= button_to post_like_path(@post), class: "like-btn", method: :delete do %>
+    <%= button_to "/posts/#{@post.id}/likes", class: "like-btn", method: :delete, remote: true do %>
       <span><i class="fas fa-heart"></i></span>
     <% end %>
   <% else %>
-    <%= button_to post_likes_path(@post), class: "like-btn" do %>
+    <%= button_to "/posts/#{@post.id}/likes", class: "like-btn", method: :post, remote: true do %>
       <span><i class="far fa-heart"></i></span>
     <% end %>
   <% end %>

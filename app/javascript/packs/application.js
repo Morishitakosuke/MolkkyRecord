@@ -26,8 +26,8 @@ import "bootstrap/dist/js/bootstrap"
 import "./bootstrap_custom.js"
 import '@fortawesome/fontawesome-free/js/all';
 
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require_tree .

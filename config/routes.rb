@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :follow_relationships, only: [:create, :destroy]
   resources :posts do
     resources :comments, only: [:create, :destroy]
-    resources :likes, only: [:create, :destroy]
   end
+  post '/posts/:post_id/likes' => "likes#create"
+  delete '/posts/:post_id/likes' => "likes#destroy"
 end
