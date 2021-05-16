@@ -3,18 +3,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Post.page(params[:page]).per(6).order('updated_at DESC').where(user_id: @user.id)
+    @posts = Post.page(params[:page]).per(6).order("updated_at DESC").where(user_id: @user.id)
   end
 
   def followings
     @user = User.find(params[:id])
     @users = @user.followings.page(params[:page]).per(5)
-    render 'show_followings'
+    render "show_followings"
   end
 
   def followers
     @user = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(5)
-    render 'show_followers'
+    render "show_followers"
   end
 end

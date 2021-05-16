@@ -19,11 +19,11 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 
-import 'bootstrap'
-import 'jquery/dist/jquery.js'
-import 'popper.js/dist/popper.js'
-import 'bootstrap/dist/js/bootstrap'
-import './bootstrap_custom.js'
+import "bootstrap"
+import "jquery/dist/jquery.js"
+import "popper.js/dist/popper.js"
+import "bootstrap/dist/js/bootstrap"
+import "./bootstrap_custom.js"
 
 //= require rails-ujs
 //= require activestorage

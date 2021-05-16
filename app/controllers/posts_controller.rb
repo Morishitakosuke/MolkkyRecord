@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :post_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.page(params[:page]).per(6).order('updated_at DESC')
+    @posts = Post.page(params[:page]).per(6).order("updated_at DESC")
   end
 
   def new
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.page(params[:page]).per(10).order('updated_at DESC')
+    @comments = @post.comments.page(params[:page]).per(10).order("updated_at DESC")
   end
 
   def edit
