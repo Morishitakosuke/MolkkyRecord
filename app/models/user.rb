@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
+  has_many :active_notifications,  foreign_key: "visitor_id", class_name: "Notification", dependent: :destroy
+  has_many :passive_notifications, foreign_key: "visited_id", class_name: "Notification", dependent: :destroy
 
   validates :username, presence: true, length: { maximum: 12 }
   validates :introduction, length: { maximum: 250 }
