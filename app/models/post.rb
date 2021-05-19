@@ -24,6 +24,7 @@ class Post < ApplicationRecord
       end
       notification.save if notification.valid?
     end
+  end
 
   # コメント通知
   def create_notification_comment!(current_user, comment_id)

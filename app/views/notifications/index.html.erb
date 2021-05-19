@@ -1,14 +1,16 @@
 <div class="container-fluid py-4 mw-md">
-  <% if @notifications.exists? %>
-    <div class="text-right mb-5">
-      <%= link_to notification_path(@notifications), method: :delete, class: "link text-warning" do %>
-        <i class="fas fa-trash mr-1"></i>確認済みにする
-      <% end %>
-    </div>
-    <div class="notification-index">
-      <%= render @notifications %>
-    </div>
-  <% else %>
-    <p class="mt-5">お知らせはありません</p>
-  <% end %>
+  <div class="notification-contents">
+    <% if @notifications.exists? %>
+      <div class="text-center my-5">
+          <%= link_to notification_path(@notifications), method: :delete, class: "link text-warning" do %>
+            <i class="fas fa-trash mr-1"></i>確認済みにする
+          <% end %>
+      </div>
+      <div class="notification-index">
+        <%= render @notifications %>
+      </div>
+    <% else %>
+        <p class="mt-5">お知らせはありません</p>
+    <% end %>
+  </div>
 </div>
