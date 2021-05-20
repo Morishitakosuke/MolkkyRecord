@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :liked_users, through: :likes, source: :users
   has_many :notifications, dependent: :destroy
+  has_many :post_tag
+  has_many :tags, through: :post_tag
 
   mount_uploader :image, ImageUploader
 
