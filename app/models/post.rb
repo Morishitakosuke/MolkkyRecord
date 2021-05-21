@@ -2,12 +2,13 @@ class Post < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 200 }
+  validates :tagcontent, length: { maximum: 100 }
 
   has_many :comments, dependent: :destroy
   has_many :likes
   has_many :liked_users, through: :likes, source: :users
   has_many :notifications, dependent: :destroy
-  has_many :post_tag
+  has_many :post_tag, dependent: :destroy
   has_many :tags, through: :post_tag
 
   mount_uploader :image, ImageUploader
@@ -52,9 +53,8 @@ class Post < ApplicationRecord
 
   # タグ機能
   after_create do
-    post = Post.find_by(id: self.id)
-    tags  = self.caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-    post.tags = []
+    post = Post.find_by(id: id)
+    tags  = tagcontent.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     tags.uniq.map do |tag|
       #タグは先頭の'#'を外した上で保存
       tag = Tag.find_or_create_by(name: tag.downcase.delete('#'))
@@ -63,9 +63,9 @@ class Post < ApplicationRecord
   end
 
   before_update do 
-    post = Post.find_by(id: self.id)
+    post = Post.find_by(id: id)
     post.tags.clear
-    tags = self.caption.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    tags = tagcontent.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     tags.uniq.map do |tag|
       tag = Tag.find_or_create_by(name: tag.downcase.delete('#'))
       post.tags << tag

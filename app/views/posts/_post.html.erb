@@ -13,4 +13,5 @@
     <% end %>
     <i class="far fa-heart"></i><span class="pl-1"><%= post.likes.count %></span>
   </div>
+  <%= render_with_tags(@post.tagcontent) %>
 </div>

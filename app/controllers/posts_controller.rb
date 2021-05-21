@@ -51,10 +51,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def tag
+    @user = current_user
+    if params[:name].nil?
+      @tags = Tag.all.to_a.group_by{ |tag| tag.post.count}
+    else
+      @tag = Tag.find_by(name: params[:name])
+      @post = @tag.post.page(params[:page]).per(20).reverse_order
+      @tags = Tag.all.to_a.group_by{ |tag| tag.post.count}
+    end
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:content, :image, :tagcontent, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def post_current_user
