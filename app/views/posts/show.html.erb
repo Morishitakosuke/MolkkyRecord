@@ -13,7 +13,7 @@
     </span>
     <div class="mt-3">
       <% @post_tags.each do |tag| %>
-        <div class="tag link"><%= "＃#{tag.name}" %></div>
+        <div><%= link_to "＃#{tag.name}", tag_posts_path(tag_id: tag.id) %></div>
       <% end %>
     </div>
     <% if current_user&.id == @post.user_id %>

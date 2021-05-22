@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :post_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.page(params[:page]).per(6).order("updated_at DESC")
+    @posts = Post.all.includes(:user, :tags, :tag_posts, :likes).order(created_at: :desc).page(params[:page]).per(6)
+    @user = User.find_by(params[:id])
+    @tag_list = Tag.find(Tag_post.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
   end
 
   def new
@@ -54,10 +56,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def tag
+  def tags
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
-    @posts = @tag.posts.all.includes(:user, :tags, :tag_posts, :likes)
+    @posts = @tag.post.all.includes(:user, :tags, :tag_post, :likes)
   end
 
   private

@@ -1,0 +1,8 @@
+<div class="container-fluid py-4 mw-md">
+  <h4 class="mt-5 text-center"><%= "##{@tag.name}" %> のタグの投稿 <%= "#{@posts.count}件" %></h4>
+    <div class="grid grid-cols-1 sm:grid-cols-4 w-full gap-6">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </div>
+</div>
