@@ -11,6 +11,11 @@
     <span class="like-<%= @post.id %>">
       <%= render "posts/like" %>
     </span>
+    <div class="mt-3">
+      <% @post_tags.each do |tag| %>
+        <div class="tag link"><%= "＃#{tag.name}" %></div>
+      <% end %>
+    </div>
     <% if current_user&.id == @post.user_id %>
       <div class="mt-5">
         <%= link_to "編集", edit_post_path(@post), class: "text-dark" %>

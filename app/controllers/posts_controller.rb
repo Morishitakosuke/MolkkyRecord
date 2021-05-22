@@ -12,7 +12,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    tag_list = params[:post][:name].split(nil)
     if @post.save
+      @post.save_tag(tag_list)
       flash[:success] = "投稿しました！"
       redirect_to user_path(current_user)
     else
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(10).order("updated_at DESC")
     @like = Like.new
+    @post_tags = @post.tags
   end
 
   def edit
@@ -52,20 +55,15 @@ class PostsController < ApplicationController
   end
 
   def tag
-    @user = current_user
-    if params[:name].nil?
-      @tags = Tag.all.to_a.group_by{ |tag| tag.post.count}
-    else
-      @tag = Tag.find_by(name: params[:name])
-      @post = @tag.post.page(params[:page]).per(20).reverse_order
-      @tags = Tag.all.to_a.group_by{ |tag| tag.post.count}
-    end
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.all.includes(:user, :tags, :tag_posts, :likes)
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:content, :image, :tagcontent, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:post).permit(:content, :image).merge(user_id: current_user.id)
   end
 
   def post_current_user
