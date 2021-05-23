@@ -34,11 +34,14 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:name).join(nil)
   end
 
   def update
     @post = Post.find(params[:id])
+    tag_list = params[:post][:name].split(nil)
     if @post.update(post_params)
+      @post.save_tag(tag_list)
       flash[:success] = "つぶやきを更新しました！"
       redirect_to user_path(current_user)
     else
