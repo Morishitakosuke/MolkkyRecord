@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :post_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all.includes(:user, :tags, :tag_posts, :likes).order(created_at: :desc).page(params[:page]).per(6)
+    @posts = Post.all.includes(:user, :tags, :tag_post, :likes).order(created_at: :desc).page(params[:page]).per(6)
     @user = User.find_by(params[:id])
-    @tag_list = Tag.find(Tag_post.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+    @tag_list = Tag.find(TagPost.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
   end
 
   def new
