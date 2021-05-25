@@ -62,7 +62,12 @@ class PostsController < ApplicationController
   def tags
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
-    @posts = @tag.post.all.includes(:user, :tags, :tag_post, :likes)
+    @posts = @tag.post.all.includes(:user, :tags, :tag_post, :likes).order(created_at: :desc).page(params[:page]).per(6)
+  end
+
+  def search
+    @tag_list = Tag.find(TagPost.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+    @posts = Post.search(params[:keyword]).includes([:user, :comments, :likes]).page(params[:page]).per(8).order('created_at DESC')
   end
 
   private

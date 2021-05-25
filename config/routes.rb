@@ -13,11 +13,17 @@ Rails.application.routes.draw do
   resources :follow_relationships, only: [:create, :destroy]
   resources :posts do
     resources :comments, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
   resources :notifications, only: [:index, :destroy]
   resources :tags do
     get 'posts' => 'posts#tags'
+    post 'posts' => 'posts#tags'
   end
-  post '/posts/:post_id/likes' => "likes#create"
-  delete '/posts/:post_id/likes' => "likes#destroy"
+  post '/posts/:post_id/likes' => 'likes#create'
+  delete '/posts/:post_id/likes' => 'likes#destroy'
+  get '/search',   to: 'posts#search'
+  
 end
