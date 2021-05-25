@@ -1,21 +1,45 @@
 <div class="container-fluid py-4 mw-md">
-  <ul>
-    <% @posts.each do |post| %>
-      <li>
-        <div class="text-center mt-5">
-        <% if post.image.present? %>
-          <img src=<%= post.image %> class="show-image">
-        <% else %>
-          <img src="/assets/noimage.png" class="show-image">
-        <% end %>
-        </div>
-        <div class="text-center pb-3 mb-3 border-bottom">
-          <h4 class="mt-5"><%= post.content %></h4>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-  <div class="text-center">
-    <%= paginate @posts %>
-  </div>
+  <% if user_signed_in? %>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to "/posts/#{post.id}" do %>
+            <div class="text-center mt-5">
+            <% if post.image.present? %>
+              <img src=<%= post.image %> class="show-image">
+            <% else %>
+              <img src="/assets/noimage.png" class="show-image">
+            <% end %>
+            </div>
+            <div class="text-center pb-3 mb-3 border-bottom">
+              <h4 class="mt-5"><%= post.content %></h4>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="text-center">
+      <%= paginate @posts %>
+    </div>
+  <% else %>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <div class="text-center mt-5">
+          <% if post.image.present? %>
+            <img src=<%= post.image %> class="show-image">
+          <% else %>
+            <img src="/assets/noimage.png" class="show-image">
+          <% end %>
+          </div>
+          <div class="text-center pb-3 mb-3 border-bottom">
+            <h4 class="mt-5"><%= post.content %></h4>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="text-center">
+      <%= paginate @posts %>
+    </div>
+  <% end %>
 </div>
