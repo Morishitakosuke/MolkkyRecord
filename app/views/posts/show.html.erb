@@ -1,10 +1,20 @@
 <div class="container-fluid py-4 mw-md">
   <div class="text-center mt-5">
-  <% if @post.image.present? %>
-    <img src=<%= @post.image %> class="show-image">
-  <% else %>
-    <img src="/assets/noimage.png" class="show-image">
-  <% end %>
+    <%= link_to user_path(@post.user_id), class: "text-dark" do %>
+      <% if @post.user.image.present? %>
+        <img src=<%= @post.user.image %> class="index_image">
+      <% else %>
+        <img src="/assets/default.png" class="index_image">
+      <% end %>
+      <span class="pl-2"><%= @post.user.username %></span>
+    <% end %>
+  </div>
+  <div class="text-center mt-5">
+    <% if @post.image.present? %>
+      <img src=<%= @post.image %> class="show-image">
+    <% else %>
+      <img src="/assets/noimage.png" class="show-image">
+    <% end %>
   </div>
   <div class="text-center pb-3 mb-3 border-bottom">
     <h4 class="mt-5"><%= @post.content %></h4>
