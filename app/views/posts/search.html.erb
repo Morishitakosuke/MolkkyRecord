@@ -1,16 +1,18 @@
 <div class="container-fluid py-4 mw-md">
-  <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
-  <div class="d-flex align-items-center justify-content-center mt-5">
-      <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
-      <button type="submit" class="ml-2"><i class="fas fa-search"></i></button>
-  </div>
-  <% end %>
-  <div class="mt-4 text-center">
-    <% @tag_list.each do |list| %>
-        <%= button_to tag_posts_path(tag_id: list.id), class: "btn-primary rounded-pill" do %>
-          <span><%= "＃#{list.name}" %></span>
-        <% end %>
+  <div class="mt-5 bg-light shadow-lg p-3 mb-5 rounded">
+    <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
+        <button type="submit" class="ml-2"><i class="fas fa-search"></i></button>
+    </div>
     <% end %>
+    <div class="mt-4 text-center">
+      <% @tag_list.each do |list| %>
+          <%= button_to tag_posts_path(tag_id: list.id), class: "btn-light rounded-pill" do %>
+            <span><%= "＃#{list.name}" %></span>
+          <% end %>
+      <% end %>
+    </div>
   </div>
 
   <% if @posts.present? %>
