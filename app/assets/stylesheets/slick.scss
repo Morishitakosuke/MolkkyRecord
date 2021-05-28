@@ -98,3 +98,51 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+
+// 以下カスタマイズ
+
+.slider {
+    height: 40vw;
+    width: 50vw;
+    max-height: 320px;
+    max-width: 500px;
+}
+
+.slick-slide img {
+    height: 35vw;
+    width: 45vw;
+    max-height: 400px;
+    max-width: 500px;
+}
+
+@media (max-width: 800px) {
+
+    .slider {
+        height: 70vw;
+        width: 85vw;
+        max-height: 500px;
+        max-width: 700px;
+    }
+
+    .slick-slide img {
+        height: 70vw;
+        width: 85vw;
+        max-height: 500px;
+        max-width: 700px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+.slider {
+    height: 70vw;
+    width: 95vw;
+}
+
+.slick-slide img {
+    height: 70vw;
+    width: 95vw;
+    }
+
+}
