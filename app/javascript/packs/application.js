@@ -18,6 +18,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require('./slick.min')
 
 import "bootstrap"
 import "jquery/dist/jquery.js"
@@ -27,7 +28,17 @@ import "./bootstrap_custom.js"
 import '@fortawesome/fontawesome-free/js/all';
 
 //= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+/*global $*/
+
+$(function() {
+  $('.slider').slick({
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: true,
+  });
+});

@@ -1,4 +1,19 @@
 <div class="container-fluid py-4 mw-md">
+  <div class="slide-content row">
+    <div class="slide-image">
+      <ul class="slider mt-5">
+        <li>
+          <img src="/assets/mollky_image.jpeg" alt="slick-img">
+        </li>
+        <li>
+          <img src="/assets/mollky_child.JPG" alt="slick-img">
+        </li>
+        <li>
+          <img src="/assets/mollky_people.JPG" alt="slick-img">
+        </li>
+      </ul>
+    </div>
+  </div>
   <% if user_signed_in? %>
     <div class="mt-5 bg-light shadow-lg p-3 mb-5 rounded">
       <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
