@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user, :tags, :tag_post, :likes).order(created_at: :desc).page(params[:page]).per(6)
     @user = User.find_by(params[:id])
     @tag_list = Tag.find(TagPost.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+    @ranks = Post.includes(:user).create_all_ranks
   end
 
   def new

@@ -69,6 +69,17 @@
   background: linear-gradient(transparent 60%, rgb(250, 144, 0));
 }
 
+// rank_post
+
+.ranks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ranking {
+  display: block;
+}
+
 @media (max-width: 800px) {
 
   .slide-content {
@@ -85,6 +96,19 @@
     margin: 10px 50px;
   }
 
+  .ranks {
+    display: block;
+  }
+
+  .ranking {
+    margin-top: 20px;
+  }
+
+  .rank-box {
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 
@@ -112,6 +136,14 @@
     font-size: 13px;
     display: block;
     margin: 10px 30px;
+  }
+
+  .ranks {
+    display: block;
+  }
+
+  .ranking {
+    margin-top: 20px;
   }
 
 }
