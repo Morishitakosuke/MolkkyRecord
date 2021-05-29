@@ -64,6 +64,11 @@
   color: black;
 }
 
+.post-title {
+  display: inline-block;
+  background: linear-gradient(transparent 60%, rgb(250, 144, 0));
+}
+
 @media (max-width: 800px) {
 
   .slide-content {
