@@ -24,6 +24,5 @@ Rails.application.routes.draw do
   end
   post '/posts/:post_id/likes' => 'likes#create'
   delete '/posts/:post_id/likes' => 'likes#destroy'
-  get '/search',   to: 'posts#search'
-  
+  get '/search', to: 'posts#search'
 end

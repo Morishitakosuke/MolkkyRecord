@@ -67,9 +67,8 @@ class Post < ApplicationRecord
   # 検索対象のカラムを設定。入力無しなら全て表示
   def self.search(search)
     if search != ''
-      Post
-        .where('content LIKE(?)', "%#{search}%")
-        # .or(Post.where('place LIKE(?)', "%#{search}%"))     TODO placeカラム追加
+      Post.
+        where('content LIKE(?)', "%#{search}%")
     else
       Post.all
     end
