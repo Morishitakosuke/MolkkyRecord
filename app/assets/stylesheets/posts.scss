@@ -46,5 +46,67 @@
 
 .slide-content {
   margin-top: 20px;
+  display: flex;
   justify-content: space-around;
+}
+
+.slide-text {
+  color: rgb(122, 122, 122);
+  margin-top: 45px;
+  margin-left: 10px;
+}
+
+.slide-text h4 {
+  background: linear-gradient(transparent 60%, rgb(250, 144, 0));
+  display: inline-block;
+  font-size: 30px;
+  font-family: ヒラギノ角ゴシック;
+  color: black;
+}
+
+@media (max-width: 800px) {
+
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-text h4 {
+    font-size: 30px;
+  }
+
+  .slide-text {
+    display: block;
+    margin: 10px 50px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slider {
+    padding-left: 0;
+  }
+
+  .slide-image {
+    margin: 0 30px;
+  }
+
+  .slide-text h4 {
+    display: inline-block;
+    font-size: 25px;
+  }
+
+  .slide-text {
+    font-size: 13px;
+    display: block;
+    margin: 10px 30px;
+  }
+
 }

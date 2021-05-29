@@ -1,5 +1,5 @@
-<div class="container-fluid py-4 mw-md">
-  <div class="slide-content row">
+
+  <div class="slide-content">
     <div class="slide-image">
       <ul class="slider mt-5">
         <li>
@@ -13,7 +13,20 @@
         </li>
       </ul>
     </div>
+    <div class="slide-text">
+      <h4 class="font-weight-bold">モルックとは！？</h4><br><br>
+      地面に立て並べられた複数の木のピンめがけて
+      モルックという木の棒を投げ、
+      獲得した点数を競うスポーツです。<br>
+      ボウリング・カーリング・ビリヤードの各要素が詰まったようなイメージで
+      ルールが至ってシンプルで分かりやすいので
+      老若男女に楽しまれる生涯スポーツです。<br>
+      また各地で練習会や大会を開催しており
+      最近はメディアの露出も徐々に増え、ますます注目を集めています。<br>
+      <%= link_to "モルックのルール", "#" %>
+    </div>
   </div>
+<div class="container-fluid py-4 mw-md">
   <% if user_signed_in? %>
     <div class="mt-5 bg-light shadow-lg p-3 mb-5 rounded">
       <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
