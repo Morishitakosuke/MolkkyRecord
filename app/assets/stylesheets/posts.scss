@@ -52,21 +52,29 @@
 
 .slide-text {
   color: rgb(122, 122, 122);
+  line-height: 30px;
   margin-top: 45px;
   margin-left: 10px;
 }
 
 .slide-text h4 {
-  background: linear-gradient(transparent 60%, rgb(250, 144, 0));
+  letter-spacing: 3px;
   display: inline-block;
-  font-size: 30px;
+  font-size: 35px;
   font-family: ヒラギノ角ゴシック;
-  color: black;
+  color: rgb(250, 144, 0);
+}
+
+.slide-text h6 {
+  letter-spacing: 3px;
+  display: inline-block;
+  font-size: 20px;
+  font-family: ヒラギノ角ゴシック;
+  color: rgb(250, 144, 0);
 }
 
 .post-title {
   display: inline-block;
-  background: linear-gradient(transparent 60%, rgb(250, 144, 0));
 }
 
 // rank_post
@@ -129,7 +137,7 @@
 
   .slide-text h4 {
     display: inline-block;
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .slide-text {
