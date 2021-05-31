@@ -22,7 +22,7 @@
         <% else %>
           <%# ヘッダーナビボタン（未ログイン時） %>
           <li class="nav-item header-item link">
-            <%= link_to "かんたんログイン", "#", class: "text-white nav-link header-nav-link" %>
+            <%= link_to "かんたんログイン", users_guest_sign_in_path, method: :post, class: "text-white nav-link header-nav-link" %>
           </li>
           <li class="nav-item header-item link">
             <%= link_to "ログイン", new_user_session_path, class: "text-white nav-link header-nav-link" %>
