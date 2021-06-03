@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   resources :users, only: [:show] do
-    resources :records
     member do
       get :following, :followers
     end
@@ -29,4 +28,5 @@ Rails.application.routes.draw do
   post '/posts/:post_id/likes' => 'likes#create'
   delete '/posts/:post_id/likes' => 'likes#destroy'
   get '/search', to: 'posts#search'
+  resources :records
 end
