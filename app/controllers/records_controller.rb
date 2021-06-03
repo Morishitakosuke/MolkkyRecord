@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
       flash[:success] = "スコアを投稿しました！"
       redirect_to user_path(current_user)
     else
-      render new_record_path
+      render new_user_record_path
     end
   end
 
