@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end 
   resources :users, only: [:show] do
+    resources :records
     member do
       get :following, :followers
     end
