@@ -19,6 +19,8 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @myteamnames = Record.pluck(:name)
+    @enemyteamnames = Record.pluck(:enemyname)
   end
 
   def edit
