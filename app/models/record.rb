@@ -13,9 +13,9 @@ class Record < ApplicationRecord
   end
 
   with_options length: { maximum: 15 } do
-    validates :enemyteam, length: { maximum: 15 }
-    validates :teamname, length: { maximum: 15 }
-    validates :title, length: { maximum: 15 }
+    validates :teamname
+    validates :enemyteam
+    validates :title
   end
 
   with_options allow_blank: true, numericality: { only_integer: true }, length: { in: 0..12 } do
