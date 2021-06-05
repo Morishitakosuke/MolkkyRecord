@@ -11,30 +11,58 @@
       </div>
       <div class="form-group mt-5 ml-5">
         <h4>チーム名(敵)</h4>
-        <%= f.text_field :teamname, placeholder: "例)チーム京都", class: "form-control" %>
+        <%= f.text_field :enemyteam, placeholder: "例)チーム京都", class: "form-control" %>
       </div>
     </div>
     <div class="d-flex justify-content-center">
       <div class="form-group mt-5">
         <h4>名前(自)</h4>
-        <%= f.text_field :name, placeholder: "例)大阪 太郎", class: "form-control" %>
-        <%= f.text_field :name, placeholder: "例)大阪 次郎", class: "form-control" %>
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field :name_a, placeholder: "例)大阪 太郎", class: "form-control" %>
+        <%= f.text_field :name_b, placeholder: "例)大阪 次郎", class: "form-control" %>
+        <%= f.text_field :name_c, class: "form-control" %>
       </div>
       <div class="form-group mt-5 ml-5">
         <h4>名前(敵)</h4>
-        <%= f.text_field :name, placeholder: "例)京都 太郎", class: "form-control" %>
-        <%= f.text_field :name, placeholder: "例)京都 次郎", class: "form-control" %>
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field :enemyname_a, placeholder: "例)京都 太郎", class: "form-control" %>
+        <%= f.text_field :enemyname_b, placeholder: "例)京都 次郎", class: "form-control" %>
+        <%= f.text_field :enemyname_c, class: "form-control" %>
       </div>
     </div>
     <div class="form-group mt-5">
       <h4>場所</h4>
       <%= f.text_field :place, placeholder: "例)三角公園 京都府宇治市", class: "form-control" %>
     </div>
-    <div class="form-group mt-5">
-      <h4>スコア</h4>
-      <%= f.text_field :score, class: "form-control" %>
+    <div class="d-flex justify-content-center">
+      <div class="form-group mt-5">
+        <h4>スコア(自)</h4>
+        <ol class="score-number">
+          <li><%= f.number_field :score_1, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_2, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_3, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_4, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_5, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_6, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_7, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_8, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_9, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :score_10, min: 0, max: 12, class: "form-control" %></li>
+        </ol>
+      </div>
+      <div class="form-group mt-5 ml-5">
+        <h4>スコア(敵)</h4>
+        <ol class="score-number">
+          <li><%= f.number_field :enemyscore_1, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_2, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_3, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_4, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_5, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_6, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_7, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_8, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_9, min: 0, max: 12, class: "form-control" %></li>
+          <li><%= f.number_field :enemyscore_10, min: 0, max: 12, class: "form-control" %></li>
+        </ol>
+      </div>
     </div>
     <div class="form-group mt-5 text-center">
       <%= f.submit "投稿する", class: "btn p-2 pl-5 pr-5 text-white" %>
