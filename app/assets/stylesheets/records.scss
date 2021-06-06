@@ -1,3 +1,9 @@
 .score-number li {
   list-style: decimal;
 }
+
+@media (max-width: 480px) {
+  .score-content {
+    font-size: 18px;
+  }
+}

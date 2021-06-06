@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_141056) do
+ActiveRecord::Schema.define(version: 2021_06_06_130600) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_141056) do
     t.string "title"
     t.string "name_a"
     t.string "teamname"
-    t.integer "score_1"
+    t.integer "score"
     t.string "place"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -81,25 +81,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_141056) do
     t.string "name_c"
     t.string "enemyname_b"
     t.string "enemyname_c"
-    t.integer "score_2"
-    t.integer "score_3"
-    t.integer "score_4"
-    t.integer "score_5"
-    t.integer "score_6"
-    t.integer "score_7"
-    t.integer "score_8"
-    t.integer "score_9"
-    t.integer "score_10"
-    t.integer "enemyscore_1"
-    t.integer "enemyscore_2"
-    t.integer "enemyscore_3"
-    t.integer "enemyscore_4"
-    t.integer "enemyscore_5"
-    t.integer "enemyscore_6"
-    t.integer "enemyscore_7"
-    t.integer "enemyscore_8"
-    t.integer "enemyscore_9"
-    t.integer "enemyscore_10"
+    t.integer "enemyscore"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 

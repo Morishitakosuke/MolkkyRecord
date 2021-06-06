@@ -53,11 +53,8 @@ class RecordsController < ApplicationController
 
   def record_params
     params.require(:record).permit(:title, :place, :name_a, :name_b, :name_c, :teamname,
-                                   :score_1, :score_2, :score_3, :score_4, :score_5, :score_6, :score_7, :score_8, :score_9, :score_10,
                                    :enemyname_a, :enemyname_b, :enemyname_c, :enemyteam,
-                                   :enemyscore_1, :enemyscore_2, :enemyscore_3, :enemyscore_4, :enemyscore_5,
-                                   :enemyscore_6, :enemyscore_7, :enemyscore_8, :enemyscore_9,
-                                   :enemyscore_10).merge(user_id: current_user.id)
+                                   :score, :enemyscore).merge(user_id: current_user.id)
   end
 
   def post_current_user
