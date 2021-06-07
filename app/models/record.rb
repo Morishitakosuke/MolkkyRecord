@@ -19,9 +19,4 @@ class Record < ApplicationRecord
     validates :enemyteam
     validates :title
   end
-
-  with_options allow_blank: true, numericality: { only_integer: true }, length: { in: 0..12 } do
-    validates :score
-    validates :enemyscore
-  end
 end
