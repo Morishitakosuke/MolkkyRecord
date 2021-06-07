@@ -1,5 +1,7 @@
 class Record < ApplicationRecord
   belongs_to :user
+  serialize :score, Array
+  serialize :enemyscore, Array
 
   with_options presence: true do
     validates :user_id
@@ -18,5 +20,10 @@ class Record < ApplicationRecord
     validates :teamname
     validates :enemyteam
     validates :title
+  end
+
+  with_options allow_blank: true, numericality: { only_integer: true }, length: { in: 0..12 } do
+    validates :score
+    validates :enemyscore
   end
 end

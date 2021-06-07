@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_113945) do
+ActiveRecord::Schema.define(version: 2021_06_06_130600) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 2021_06_07_113945) do
     t.string "name_c"
     t.string "enemyname_b"
     t.string "enemyname_c"
+    t.integer "enemyscore"
+    t.integer "score"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
