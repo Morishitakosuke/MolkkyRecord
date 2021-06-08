@@ -10,6 +10,7 @@ class RecordsController < ApplicationController
   def create
     @record = current_user.records.build(record_params)
     if @record.save
+      @record.total_score
       flash[:success] = "スコアを投稿しました！"
       redirect_to user_path(current_user)
     else
@@ -19,6 +20,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @sum_score = @record.score
   end
 
   def edit
