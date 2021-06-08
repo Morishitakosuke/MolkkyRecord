@@ -1,6 +1,9 @@
 class Record < ApplicationRecord
   belongs_to :user
 
+  has_many :score_record, dependent: :destroy
+  has_many :scores, through: :score_record
+
   with_options presence: true do
     validates :user_id
   end

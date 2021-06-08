@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_114851) do
+ActiveRecord::Schema.define(version: 2021_06_08_121205) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
@@ -83,6 +83,22 @@ ActiveRecord::Schema.define(version: 2021_06_08_114851) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
+  create_table "score_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "record_id", null: false
+    t.bigint "score_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_id"], name: "index_score_records_on_record_id"
+    t.index ["score_id"], name: "index_score_records_on_score_id"
+  end
+
+  create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "number"
+    t.integer "enemynumber"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tag_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "tag_id", null: false
@@ -122,6 +138,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_114851) do
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "records", "users"
+  add_foreign_key "score_records", "records"
+  add_foreign_key "score_records", "scores"
   add_foreign_key "tag_posts", "posts"
   add_foreign_key "tag_posts", "tags"
 end
