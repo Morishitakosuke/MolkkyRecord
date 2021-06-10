@@ -22,4 +22,9 @@ class Record < ApplicationRecord
     validates :enemyteam
     validates :title
   end
+
+  def total_score
+    Score.all.sum(:number)
+    Score.all.sum(:enemynumber)
+  end
 end

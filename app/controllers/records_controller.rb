@@ -20,7 +20,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-    @sum_score = @record.score
+    @record_score = @record.scores
   end
 
   def edit

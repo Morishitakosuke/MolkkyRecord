@@ -1,5 +1,27 @@
+// new
 .score-number li {
   list-style: decimal;
+}
+
+// show
+table {
+  border: 2px solid black;
+  width: 100%;
+}
+
+tr {
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+
+th {
+  border-left: 1px solid black;
+  padding-left: 3px;
+}
+
+td {
+  border-left: 1px solid black;
+  padding-left: 3px;
 }
 
 @media (max-width: 480px) {
