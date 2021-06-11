@@ -1,6 +1,7 @@
 <div class="container-fluid py-4 mw-md">
   <div class="text-center mt-5 pt-5">
-    <%= link_to "スコア投稿", new_record_path %>
+    <p>↓スコア入力はこちら↓</p>
+    <%= link_to "スコア投稿", new_record_path, class: "btn p-2 pl-5 pr-5 text-white" %>
   </div>
   <%= form_with(model: @post, local: true) do |f| %>
     <div class="form-group pt-5 mt-5">

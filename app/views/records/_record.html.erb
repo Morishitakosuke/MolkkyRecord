@@ -1,0 +1,26 @@
+<div class="container-fluid py-4 mw-md">
+  <div class="border-bottom">
+    <%= link_to "/records/#{record.id}" do %>
+      <div class="post-contents">
+        <p class="text-dark"><i class="fas fa-crown"></i><%= record.title %><i class="fas fa-crown"></i></p>
+      </div>
+      <div class="text-center">
+        <p class="text-dark"><i class="fas fa-map-pin"></i> :
+          <% if record.place.present? %>
+            <%= record.place %>
+          <% end %>
+        </p>
+      </div>
+      <div class="text-center">
+        <p class="text-dark">
+          <% if record.enemyteam.present? %>
+            <%= record.teamname %> VS <%= record.enemyteam %>
+          <% else %>
+            <%= record.name_a %>
+          <% end %>
+        </p>
+      </div>
+      <p class="record-time text-right"><%= time_ago_in_words(record.created_at) %>前</p>
+    <% end %>
+  </div>
+</div>

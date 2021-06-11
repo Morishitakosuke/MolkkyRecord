@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Post.page(params[:page]).per(6).order("updated_at DESC").where(user_id: @user.id)
+    @posts = Post.page(params[:page]).per(3).order("updated_at DESC").where(user_id: @user.id)
+    @records = Record.page(params[:page]).per(3).order("updated_at DESC").where(user_id: @user.id)
   end
 
   def followings

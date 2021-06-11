@@ -23,8 +23,26 @@ class Record < ApplicationRecord
     validates :title
   end
 
-  def total_score
-    Score.all.sum(:number)
-    Score.all.sum(:enemynumber)
+  with_options allow_blank: true, numericality: { in: 0..12 }  do
+    validates :score_1 ,presence: true
+    validates :score_2
+    validates :score_3
+    validates :score_4
+    validates :score_5
+    validates :score_6
+    validates :score_7
+    validates :score_8
+    validates :score_9
+    validates :score_10
+    validates :enemyscore_1
+    validates :enemyscore_2
+    validates :enemyscore_3
+    validates :enemyscore_4
+    validates :enemyscore_5
+    validates :enemyscore_6
+    validates :enemyscore_7
+    validates :enemyscore_8
+    validates :enemyscore_9
+    validates :enemyscore_10
   end
 end

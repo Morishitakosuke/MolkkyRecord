@@ -7,7 +7,7 @@
         <% else %>
           <img src="/assets/noimage.png" class="post_image">
         <% end %>
-        <p class="text-dark ml-3"><%= post.content %></p> 
+        <p class="text-dark"><%= post.content %></p> 
       </div>
       <p class="time text-right"><%= time_ago_in_words(post.created_at) %>前</p>
     <% end %>
