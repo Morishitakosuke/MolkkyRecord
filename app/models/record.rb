@@ -1,4 +1,6 @@
 class Record < ApplicationRecord
+  after_initialize :set_default_values
+
   belongs_to :user
 
   has_many :score_record, dependent: :destroy
@@ -7,7 +9,7 @@ class Record < ApplicationRecord
   with_options presence: true do
     validates :user_id
   end
-  
+
   with_options length: { maximum: 12 } do
     validates :name_a, presence: true
     validates :name_b
@@ -23,8 +25,8 @@ class Record < ApplicationRecord
     validates :title
   end
 
-  with_options allow_blank: true, numericality: { in: 0..12 }  do
-    validates :score_1 ,presence: true
+  with_options allow_blank: true, numericality: { in: 0..12 } do
+    validates :score_1
     validates :score_2
     validates :score_3
     validates :score_4
@@ -44,5 +46,30 @@ class Record < ApplicationRecord
     validates :enemyscore_8
     validates :enemyscore_9
     validates :enemyscore_10
+  end
+
+  private
+
+  def set_default_values
+    self.score_1 ||= 0
+    self.score_2 ||= 0
+    self.score_3 ||= 0
+    self.score_4 ||= 0
+    self.score_5 ||= 0
+    self.score_6 ||= 0
+    self.score_7 ||= 0
+    self.score_8 ||= 0
+    self.score_9 ||= 0
+    self.score_10 ||= 0
+    self.enemyscore_1 ||= 0
+    self.enemyscore_2 ||= 0
+    self.enemyscore_3 ||= 0
+    self.enemyscore_4 ||= 0
+    self.enemyscore_5 ||= 0
+    self.enemyscore_6 ||= 0
+    self.enemyscore_7 ||= 0
+    self.enemyscore_8 ||= 0
+    self.enemyscore_9 ||= 0
+    self.enemyscore_10 ||= 0
   end
 end
