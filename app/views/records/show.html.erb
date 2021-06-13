@@ -63,14 +63,14 @@
     </tr>
     <tr>
       <td class="bg-light">
-        <% if @total_score > 50 %>
+        <% if @total_score > Const::WIN_SCORE %>
           <%= @over_score %>
         <% else %>
           <%= @total_score %>
         <% end %>
       </td>
       <td>
-        <% if @total_score > 25 %>
+        <% if @total_score > Const::OVER_FIFTY_SCORE %>
           <%= @total_enemyscore %>
         <% else %>
           <%= @over_enemyscore %>
