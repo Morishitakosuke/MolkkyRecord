@@ -20,12 +20,17 @@ class RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
     @records = Record.where(id: params[:id])
+    @total_score = 0
+    # モルックのルール上、投げる回数が5回以下にはならない
+    @over_score = 25 + @record.score_6 + @record.score_7 + @record.score_8 + @record.score_9 + @record.score_10
+    @over_enemyscore = 25 + @record.enemyscore_6 + @record.enemyscore_7 +
+      @record.enemyscore_8 + @record.enemyscore_9 + @record.enemyscore_10
     @records.each do |record|
-      @total_score = record.score_1 + record.score_2 + record.score_3 + record.score_4 + record.score_5 +
-        record.score_6 + record.score_7 + record.score_8 + record.score_9 + record.score_10
       @total_enemyscore = record.enemyscore_1 + record.enemyscore_2 + record.enemyscore_3 +
         record.enemyscore_4 + record.enemyscore_5 + record.enemyscore_6 + record.enemyscore_7 +
         record.enemyscore_8 + record.enemyscore_9 + record.enemyscore_10
+      @total_score = record.score_1 + record.score_2 + record.score_3 + record.score_4 + record.score_5 +
+        record.score_6 + record.score_7 + record.score_8 + record.score_9 + record.score_10
     end
   end
 

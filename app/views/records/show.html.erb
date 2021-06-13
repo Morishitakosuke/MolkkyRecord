@@ -62,7 +62,20 @@
       <th>合計</th><th>合計</th>
     </tr>
     <tr>
-      <td class="bg-light"><%= @total_score %></td><td><%= @total_enemyscore %></td>
+      <td class="bg-light">
+        <% if @total_score > 50 %>
+          <%= @over_score %>
+        <% else %>
+          <%= @total_score %>
+        <% end %>
+      </td>
+      <td>
+        <% if @total_score > 25 %>
+          <%= @total_enemyscore %>
+        <% else %>
+          <%= @over_enemyscore %>
+        <% end %>
+      </td>
     </tr>
   </table>
 
