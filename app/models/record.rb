@@ -26,6 +26,7 @@ class Record < ApplicationRecord
     validates :teamname
     validates :enemyteam
     validates :title
+    validates :place
   end
 
   with_options allow_blank: true, numericality: { in: 0..12 } do
