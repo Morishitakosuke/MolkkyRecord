@@ -1,4 +1,7 @@
 class Record < ApplicationRecord
+  geocoded_by :place
+  after_validation :geocode
+
   after_initialize :set_default_values
 
   belongs_to :user
