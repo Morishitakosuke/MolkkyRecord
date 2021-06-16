@@ -132,6 +132,7 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-dotted.slick-slider {
     margin-bottom: 30px;
+    padding-left: 20px;
 }
 
 .slick-dots {
@@ -190,5 +191,17 @@ $slick-opacity-not-active: 0.25 !default;
             color: $slick-dot-color-active;
             opacity: $slick-opacity-default;
         }
+    }
+}
+
+@media (max-width: 800px) {
+    .slick-dotted.slick-slider {
+        padding-left: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slick-dotted.slick-slider {
+        padding-left: 0;
     }
 }

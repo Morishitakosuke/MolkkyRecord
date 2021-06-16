@@ -102,32 +102,32 @@
 // 以下カスタマイズ
 
 .slider {
-    height: 40vw;
-    width: 50vw;
-    max-height: 320px;
-    max-width: 500px;
+    height: 35vw;
+    width: 45vw;
+    max-height: 350px;
+    max-width: 450px;
 }
 
 .slick-slide img {
     height: 35vw;
-    width: 45vw;
-    max-height: 400px;
-    max-width: 500px;
+    width: 40vw;
+    max-height: 350px;
+    max-width: 450px;
 }
 
 @media (max-width: 800px) {
 
     .slider {
         height: 70vw;
-        width: 85vw;
-        max-height: 500px;
+        width: 90vw;
+        max-height: 350px;
         max-width: 700px;
     }
 
     .slick-slide img {
         height: 70vw;
-        width: 85vw;
-        max-height: 500px;
+        width: 90vw;
+        max-height: 350px;
         max-width: 700px;
     }
 
@@ -137,12 +137,12 @@
 
 .slider {
     height: 70vw;
-    width: 90vw;
+    width: 75vw;
 }
 
 .slick-slide img {
     height: 70vw;
-    width: 80vw;
+    width: 75vw;
     }
 
 }
