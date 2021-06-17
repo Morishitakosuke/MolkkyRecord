@@ -106,6 +106,7 @@
     width: 45vw;
     max-height: 350px;
     max-width: 450px;
+    z-index: 2;
 }
 
 .slick-slide img {
@@ -113,6 +114,10 @@
     width: 40vw;
     max-height: 350px;
     max-width: 450px;
+}
+
+.slick-initialized {
+    display: block;
 }
 
 @media (max-width: 800px) {

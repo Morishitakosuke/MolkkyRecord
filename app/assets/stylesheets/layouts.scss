@@ -1,13 +1,19 @@
 // ヘッダー
 
-.nav-items {
-  max-width: 100%;
-  margin: 0 auto;
+nav {
+  background-color: #f79314;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
 }
 
 .navbar-brand {
   font-size: 30px;
   font-weight: bold;
+  color: #fff;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
 a {
@@ -23,21 +29,143 @@ li {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: darkgray;
 }
 
-.navbar {
-  background-color: #f79314;
+::before , ::after {
+  box-sizing: inherit;
 }
 
-.header-nav-link {
-  font-family: monospace;
-  font-size: 16px;
+.hamburger-button {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  vertical-align: middle;
+  text-align: inherit;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-.header-item {
-  padding: 3px 0;
-  margin-left: 10px;
+.hamburger-btn {
+  // ボタンの配置位置
+  position: fixed;
+  top: 13px;
+  right: 16px;
+  // 最前面に
+  z-index: 10;
+  // ボタンの大きさ
+  width: 48px;
+  height: 48px;
+}
+
+// 真ん中のバーガー線
+.btn-line {
+  display: block;
+  // バーガー線の位置基準として設定
+  position: relative;
+  // 線の長さと高さ
+  width: 100%;
+  height: 4px;
+  // バーガー線の色
+  background-color: #fff;
+  transition: .2s;
+}
+
+// 上下のバーガー線
+.btn-line::before , .btn-line::after {
+  content: "";
+  // 基準線と同じ大きさと色
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: .5s;
+}
+
+.btn-line::before {
+  // 上の線の位置
+  transform: translateY(-16px);
+}
+
+.btn-line::after {
+  // 下の線の位置
+  transform: translateY(16px);
+}
+
+// メニューオープン時
+.btn-line.open {
+  // 真ん中の線を透明に
+  background-color: transparent;
+}
+
+.btn-line.open::before , .btn-line.open::after {
+  content: "";
+  background-color: #333;
+  transition: .2s;
+}
+
+.btn-line.open::before {
+  // 上の線を傾ける
+  transform: rotate(45deg);
+}
+
+.btn-line.open::after {
+  //上の線を傾ける
+  transform: rotate(-45deg);
+}
+
+.menu {
+  // メニューを縦に
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  // メニューの位置マイナス指定で画面外に
+  right: -70%;
+  width: 70%;
+  height: 200px;
+  background-color: rgba(167, 102, 58, 0.7);
+  color: #efefef;
+  transition: .3s;
+}
+
+.menu-list {
+  // メニューテキスト位置をリスト内中心に
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-list:hover {
+  background-color: rgba(255, 255, 255, .5);
+  color: #333;
+  cursor: pointer;
+  transition: .3s;
+}
+
+// メニューオープン時位置0にして画面内に
+.menu.open {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 800px) {
+  .menu {
+    // メニューを横に
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 100%;
+    right: -70%;
+    width: 100%;
+    height: 200px;
+  }
 }
 
 // フラッシュ用
