@@ -43,11 +43,8 @@ document.addEventListener("turbolinks:load"
         autoplaySpeed: 4000,
         arrows: true,
     });
-  });
-})
+  })
 
-document.addEventListener("turbolinks:load"
-, function () {
   $(function () {
     $('.js-btn').on('click', function () {        // js-btnクラスをクリックすると、
       $('.menu , .btn-line').toggleClass('open'); // メニューとバーガーの線にopenクラスをつけ外しする
