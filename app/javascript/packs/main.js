@@ -31,7 +31,6 @@
 //   <app></app>
 // </div>
 
-
 import Vue from 'vue/dist/vue.esm'
 
 document.addEventListener("turbolinks:load", () => {

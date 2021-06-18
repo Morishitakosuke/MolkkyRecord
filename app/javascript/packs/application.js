@@ -34,8 +34,7 @@ import '@fortawesome/fontawesome-free/js/all';
 //= require_tree .
 /*global $*/
 
-document.addEventListener("turbolinks:load"
-, function () {
+document.addEventListener("turbolinks:load" , function () {
   $(function() {
     $('.slider').slick({
         dots: true,
