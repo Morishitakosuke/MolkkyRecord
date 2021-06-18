@@ -15,7 +15,7 @@
   <div class="slide-text">
     <h4 class="font-weight-bold">MOLKKY RECORD</h4><br>
     <h6>未来のオリンピック競技へ</h6><br><br>
-    地面に立て並べられた複数の木のピンめがけて
+    地面に立て並べられた複数の木のピンめがけて<br>
     モルックという木の棒を投げ、
     獲得した点数を競うスポーツです。<br>
     ボウリング・カーリング・ビリヤードの各要素が詰まったようなイメージで
@@ -23,7 +23,27 @@
     老若男女に楽しまれる生涯スポーツです。<br>
     また各地で練習会や大会を開催しており
     最近はメディアの露出も徐々に増え、ますます注目を集めています。<br>
-    <%= link_to "モルックのルール", "#" %>
+    <div id="modal" class="text-center mt-3 text-dark">
+      <button class="modal-button text-white" v-on:click="openModal"><i class="fas fa-file-alt"></i>モルックのルール<i class="fas fa-file-alt"></i></button>
+      <div id="overlay" v-show="showContent" v-on:click="closeModal">
+        <div id="content">
+          <h2>ルール説明</h2>
+          <ul class="rules-text text-left">
+            <li>先攻後攻を決める</li>
+            <li>先に50点ちょうどを取ったチームの勝利(先攻後攻は関係無し)</li>
+            <li>2セット先取で勝利</li>
+            <li>50点を超えると25点からやり直し</li>
+            <li>スキットルを1本倒した場合「数字」が得点になり、2本以上倒した場合「本数」が得点になる</li>
+            <li>モルックを投げるときは足元線を越えてはならない</li>
+            <li>1投ごとに相手チームと交代</li>
+            <li>倒したスキットルは投げたチームが立てる</li>
+            <li>チーム内で3回連続0点だった場合敗北</li>
+            <li>完全に地面についていないスキットルは得点にはならない</li>
+          </ul>
+          <div><button class="modal-button text-white" v-on:click="closeModal">閉じる</button></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="border-top pt-5 text-center">
