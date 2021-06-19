@@ -1,4 +1,6 @@
 class Record < ApplicationRecord
+  paginates_per 3
+
   geocoded_by :place
   after_validation :geocode
 
