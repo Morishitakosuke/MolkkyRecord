@@ -1,6 +1,5 @@
 <nav>
   <%= link_to "MolkkyRecord", root_path, class: "navbar-brand" %>
-
   <div>
     <ul class="menu">
       <% if user_signed_in? %>
@@ -22,13 +21,16 @@
         </li>
       <% else %>
         <%# ヘッダーナビボタン（未ログイン時） %>
-        <li class="nav-item header-item link">
+        <button type="button" class="hamburger-btn js-btn hamburger-button">
+          <span class="btn-line"></span>
+        </button>
+        <li class="menu-list">
           <%= link_to "かんたんログイン", users_guest_sign_in_path, method: :post, class: "text-white nav-link header-nav-link" %>
         </li>
-        <li class="nav-item header-item link">
+        <li class="menu-list">
           <%= link_to "ログイン", new_user_session_path, class: "text-white nav-link header-nav-link" %>
         </li>
-        <li class="nav-item header-item link">
+        <li class="menu-list">
           <%= link_to "新規登録",new_user_registration_path, class: "text-white nav-link header-nav-link" %>
         </li>
       <% end %>
