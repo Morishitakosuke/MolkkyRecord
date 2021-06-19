@@ -2,7 +2,7 @@ class Record < ApplicationRecord
   paginates_per 3
 
   geocoded_by :place
-  after_validation :geocode
+  after_validation :geocode, if: :place_changed?
 
   after_initialize :set_default_values
 
@@ -10,6 +10,8 @@ class Record < ApplicationRecord
 
   has_many :score_record, dependent: :destroy
   has_many :scores, through: :score_record
+
+  validates :place, length: { maximum: 20 }
 
   with_options presence: true do
     validates :user_id
@@ -28,7 +30,6 @@ class Record < ApplicationRecord
     validates :teamname
     validates :enemyteam
     validates :title
-    validates :place
   end
 
   with_options allow_blank: true, numericality: { in: 0..12 } do
