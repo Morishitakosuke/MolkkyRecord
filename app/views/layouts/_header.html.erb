@@ -8,16 +8,19 @@
           <span class="btn-line"></span>
         </button>
         <li class="menu-list">
-          <%= link_to "お知らせ", notifications_path, class: "text-white nav-link header-nav-link" %>
+          <%= link_to "お知らせ", notifications_path, class: "text-white my-3" %>
         </li>
         <li class="menu-list">
-          <%= link_to "#{current_user.username}", user_path(current_user.id), class: "text-white nav-link header-nav-link" %>
+          <%= link_to "#{current_user.username}", user_path(current_user.id), class: "text-white my-3" %>
         </li>
         <li class="menu-list">
-          <%= link_to "投稿", new_post_path, class: "text-white nav-link header-nav-link" %>
+          <%= link_to "つぶやき", new_post_path, class: "text-white my-3" %>
         </li>
         <li class="menu-list">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white nav-link header-nav-link" %>
+          <%= link_to "スコア投稿", new_record_path, class: "text-white my-3" %>
+        </li>
+        <li class="menu-list">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white my-3" %>
         </li>
       <% else %>
         <%# ヘッダーナビボタン（未ログイン時） %>
