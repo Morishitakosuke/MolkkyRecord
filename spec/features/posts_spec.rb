@@ -13,8 +13,7 @@ RSpec.feature "Posts", type: :feature do
       fill_in "user_email", with: @user.email
       fill_in "user_password", with: @user.password
       click_button("ログインする")
-      # 「投稿」をクリックし、新規投稿ページへ遷移する
-      first(:link, "投稿").click
+      visit new_post_path
       expect(current_path).to eq new_post_path
       fill_in "post_content", with: @post.content
       # 投稿するとPostモデルのカウントが1上がる
@@ -30,8 +29,9 @@ RSpec.feature "Posts", type: :feature do
       # トップページに遷移する
       visit root_path
       # 新規投稿ページへのリンクがない
-      expect(page).to have_link("投稿")
+      expect(page).to have_no_link("投稿")
     end
+
     it "投稿内容が空だと投稿できない" do
       # ログインする
       visit new_user_session_path
@@ -39,7 +39,7 @@ RSpec.feature "Posts", type: :feature do
       fill_in "user_password", with: @user.password
       click_button("ログインする")
       # 「投稿」をクリックし、新規投稿ページへ遷移する
-      first(:link, "投稿").click
+      visit new_post_path
       expect(current_path).to eq new_post_path
       # フォームが空のまま、投稿ボタンを押してもPostモデルのカウントが変わらない
       fill_in "post_content", with: ""
