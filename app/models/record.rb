@@ -8,9 +8,6 @@ class Record < ApplicationRecord
 
   belongs_to :user
 
-  has_many :score_record, dependent: :destroy
-  has_many :scores, through: :score_record
-
   validates :place, length: { maximum: 20 }
 
   with_options presence: true do
