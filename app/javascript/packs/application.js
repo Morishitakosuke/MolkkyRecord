@@ -10,43 +10,21 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-window.jQuery = $;
-window.$ = $;
+
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-require('./slick.min')
+require("bootstrap")
+require("@fortawesome/fontawesome-free/js/all")
+require("./slick.min")
+require("./slider")
+require("./menu")
+require("./modal")
+require("./bootstrap_custom.js")
 
-import "bootstrap"
 import "jquery/dist/jquery.js"
 import "popper.js/dist/popper.js"
 import "bootstrap/dist/js/bootstrap"
-import "./bootstrap_custom.js"
-import '@fortawesome/fontawesome-free/js/all';
-
-//= require jquery
-//= require jquery_ujs
-//= require rails-ujs
-//= require activestorage
-//= require_tree .
-/*global $*/
-
-document.addEventListener("turbolinks:load" , function () {
-  $(function() {
-    $('.slider').slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        arrows: true,
-    });
-  })
-
-  $(function () {
-    $('.js-btn').on('click', function () {        // js-btnクラスをクリックすると、
-      $('.menu , .btn-line').toggleClass('open'); // メニューとバーガーの線にopenクラスをつけ外しする
-    })
-  });
-})

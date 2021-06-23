@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "main" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload", defer: true %>
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
