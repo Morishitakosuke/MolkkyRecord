@@ -21,6 +21,7 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @records = Record.where(id: params[:id])
     @total_score = 0
+    @total_enemyscore = 0
     # モルックのルール上、投げる回数が5回以下にはならない
     @over_score = Const::OVER_FIFTY_SCORE + @record.score_6 + @record.score_7 + @record.score_8 + @record.score_9 + @record.score_10
     @over_enemyscore = Const::OVER_FIFTY_SCORE + @record.enemyscore_6 + @record.enemyscore_7 +

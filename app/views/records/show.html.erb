@@ -75,10 +75,10 @@
         <% end %>
       </td>
       <td>
-        <% if @total_score > Const::OVER_FIFTY_SCORE %>
-          <%= @total_enemyscore %>
-        <% else %>
+        <% if @total_enemyscore > Const::WIN_SCORE %>
           <%= @over_enemyscore %>
+        <% else %>
+          <%= @total_enemyscore %>
         <% end %>
       </td>
     </tr>

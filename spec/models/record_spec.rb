@@ -56,7 +56,8 @@ describe Record do
         expect(@record).to be_valid
       end
 
-      it "score_1以外が空でも投稿できる" do
+      it "scoreが空でも投稿できる" do
+        @record.score_1 = ""
         @record.score_2 = ""
         @record.score_3 = ""
         @record.score_4 = ""
@@ -90,8 +91,13 @@ describe Record do
         @record.valid?
       end
 
-      it "score_1が空だと投稿が保存できない" do
-        @record.score_1 = ""
+      it "scoreが12を越えると投稿が保存できない" do
+        @record.score_1 = 13
+        @record.valid?
+      end
+
+      it "scoreが数以外だと投稿が保存できない" do
+        @record.score_1 = "1"
         @record.valid?
       end
 
