@@ -1,0 +1,196 @@
+// _post
+.post-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post_image {
+  width: 120px;
+  height: 120px;
+}
+
+.time {
+  font-size: 12px;
+  color: darkgray;
+  margin-bottom: -16px;
+}
+
+// show
+.show-image {
+  width: 200px;
+  height: 200px;
+}
+
+// like
+.button_to {
+  display: inline;
+}
+
+.like-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+// index
+.index_image {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.slide-content {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.slide-text {
+  color: rgb(122, 122, 122);
+  line-height: 30px;
+  margin-top: 45px;
+  margin-left: 10px;
+}
+
+.slide-text h4 {
+  letter-spacing: 3px;
+  display: inline-block;
+  font-size: 35px;
+  font-family: ヒラギノ角ゴシック;
+  color: rgb(250, 144, 0);
+}
+
+.slide-text h6 {
+  letter-spacing: 3px;
+  display: inline-block;
+  font-size: 20px;
+  font-family: ヒラギノ角ゴシック;
+  color: rgb(250, 144, 0);
+}
+
+.post-title {
+  display: inline-block;
+}
+
+#overlay {
+  z-index: 4;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content {
+  z-index: 5;
+  width: 75%;
+  padding: 1em;
+  background-color:#fff;
+  max-height: 75%;
+  overflow: scroll;
+}
+
+.modal-button {
+  background-color: darkorange;
+  border-radius: 10px;
+  border: none;
+}
+
+.rules-text li {
+  list-style: circle;
+}
+
+@media (max-width: 480px) {
+  .rules-text li {
+    list-style: circle;
+    font-size: 10px;
+  }
+}
+
+// rank_post
+
+.ranks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ranking {
+  display: block;
+}
+
+@media (max-width: 800px) {
+
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-text h4 {
+    font-size: 30px;
+  }
+
+  .slide-text {
+    display: block;
+    margin: 10px 50px;
+  }
+
+  .ranks {
+    display: block;
+  }
+
+  .ranking {
+    margin-top: 20px;
+  }
+
+  .rank-box {
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slider {
+    padding-left: 0;
+  }
+
+  .slide-image {
+    margin: 0 30px;
+  }
+
+  .slide-text h4 {
+    display: inline-block;
+    font-size: 22px;
+  }
+
+  .slide-text {
+    font-size: 13px;
+    display: block;
+    margin: 10px 30px;
+  }
+
+  .ranks {
+    display: block;
+  }
+
+  .ranking {
+    margin-top: 20px;
+  }
+
+}

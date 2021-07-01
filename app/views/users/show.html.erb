@@ -1,0 +1,52 @@
+<div class="profile">
+  <div class="status">
+    <%= link_to edit_user_registration_path do %>
+      <% if @user.image.present? %>
+        <img src=<%= @user.image %> class="icon_image">
+      <% else %>
+        <img src="/assets/default.png" class="icon_image">
+      <% end %>
+    <% end %>
+    <%= render "users/follow_form" %>
+  </div>
+  <div class="profile-contents">
+    <%= link_to edit_user_registration_path do %>
+      <h3 class="pt-5"><%= @user.username %></h3>
+    <% end %>
+    <div class="mb-1">
+      <strong id="followings">
+        <%= "#{@user.followings.count}" %>
+      </strong>フォロー中
+    </div>
+    <div class="mb-1">
+      <strong id="followers">
+        <%= "#{@user.followers.count}" %>
+      </strong>フォロワー
+    </div>
+  </div>
+  <% if @user.introduction.present? %>
+    <div class="w-50 ml-5 my-auto mx-auto text-center">
+      <p><%= @user.introduction %></p>
+    </div>
+  <% end %>
+</div>
+
+<% if @user.posts.any? %>
+  <h3 class="text-center mt-3">投稿一覧 (<%= @user.posts.count %>)</h3>
+  <ol>
+    <%= render @posts %>
+  </ol>
+  <div class="text-center">
+    <%= paginate @posts, :param_name => "posts_page" %>
+  </div>
+<% end %>
+
+<% if @user.records.any? %>
+  <h3 class="text-center mt-3 pt-3">スコア一覧 (<%= @user.records.count %>)</h3>
+  <ol>
+    <%= render @records %>
+  </ol>
+  <div class="text-center">
+    <%= paginate @records, :param_name => "records_page" %>
+  </div>
+<% end %>

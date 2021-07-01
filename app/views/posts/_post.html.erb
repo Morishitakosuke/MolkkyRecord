@@ -1,0 +1,16 @@
+<div class="container-fluid py-4 mw-md">
+  <div class="border-bottom">
+    <%= link_to "/posts/#{post.id}" do %>
+      <div class="post-contents">
+        <% if post.image.present? %>
+          <img src=<%= post.image %> class="post_image">
+        <% else %>
+          <img src="/assets/noimage.png" class="post_image">
+        <% end %>
+        <p class="text-dark"><%= post.content %></p> 
+      </div>
+      <p class="time text-right"><%= time_ago_in_words(post.created_at) %>前</p>
+    <% end %>
+    <i class="far fa-heart"></i><span class="pl-1"><%= post.likes.count %></span>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="slide-content mb-3 pb-3">
+  <div class="slide-image slick-initialized">
+    <ul class="slider mt-5">
+      <li>
+        <img src="/assets/mollky_image.jpeg" alt="slick-img">
+      </li>
+      <li>
+        <img src="/assets/mollky_child.JPG" alt="slick-img">
+      </li>
+      <li>
+        <img src="/assets/mollky_people.JPG" alt="slick-img">
+      </li>
+    </ul>
+  </div>
+  <div class="slide-text">
+    <h4 class="font-weight-bold">MOLKKY RECORD</h4><br>
+    <h6>未来のオリンピック競技へ</h6><br><br>
+    地面に立て並べられた複数の木のピンめがけて<br>
+    モルックという木の棒を投げ、
+    獲得した点数を競うスポーツです。<br>
+    ボウリング・カーリング・ビリヤードの各要素が詰まったようなイメージで
+    ルールが至ってシンプルで分かりやすいので
+    老若男女に楽しまれる生涯スポーツです。<br>
+    また各地で練習会や大会を開催しており
+    最近はメディアの露出も徐々に増え、ますます注目を集めています。<br>
+    <div id="modal" class="text-center mt-3 text-dark">
+      <button class="modal-button text-white" v-on:click="openModal"><i class="fas fa-file-alt"></i>モルックのルール<i class="fas fa-file-alt"></i></button>
+      <div id="overlay" v-show="showContent" v-on:click="closeModal">
+        <div id="content">
+          <h2>ルール説明</h2>
+          <ul class="rules-text text-left">
+            <li>先攻後攻を決める</li>
+            <li>先に50点ちょうどを取ったチームの勝利(先攻後攻は関係無し)</li>
+            <li>2セット先取で勝利</li>
+            <li>50点を超えると25点からやり直し</li>
+            <li>スキットルを1本倒した場合「数字」が得点になり、2本以上倒した場合「本数」が得点になる</li>
+            <li>モルックを投げるときは足元線を越えてはならない</li>
+            <li>1投ごとに相手チームと交代</li>
+            <li>倒したスキットルは投げたチームが立てる</li>
+            <li>チーム内で3回連続0点だった場合敗北</li>
+            <li>完全に地面についていないスキットルは得点にはならない</li>
+          </ul>
+          <div><button class="modal-button text-white" v-on:click="closeModal">閉じる</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="border-top pt-5 text-center">
+  <h4 class="post-title"><i class="fas fa-crown"></i>人気投稿<i class="fas fa-crown"></i></h4>
+<div class="ranks border-bottom py-5">
+  <%= render "rank_post" %>
+</div>
+<div class="container-fluid py-4 mw-md">
+  <div class="text-center pt-5">
+    <h4 class="post-title"><i class="fas fa-pen"></i>投稿一覧<i class="fas fa-pen"></i></h4>
+  </div>
+  <% if user_signed_in? %>
+    <div class="mt-5 bg-light shadow-lg p-3 mb-5 rounded">
+      <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f| %>
+      <div class="d-flex align-items-center justify-content-center mt-5">
+          <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
+          <button type="submit" class="ml-2"><i class="fas fa-search"></i></button>
+      </div>
+      <% end %>
+      <div class="mt-4 text-center">
+        <% @tag_list.each do |list| %>
+            <%= button_to tag_posts_path(tag_id: list.id), class: "btn-light rounded-pill mt-1" do %>
+              <span><%= "＃#{list.name}" %></span>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to "/posts/#{post.id}", class: "text-dark" do %>
+            <div class="text-center mt-5">
+              <% if post.user.image.present? %>
+                <img src=<%= post.user.image %> class="index_image">
+              <% else %>
+                <img src="/assets/default.png" class="index_image">
+              <% end %>
+              <span class="pl-2"><%= post.user.username %></span>
+            <div class="text-center mt-1">
+              <% if post.image.present? %>
+                <img src=<%= post.image %> class="show-image">
+              <% else %>
+                <img src="/assets/noimage.png" class="show-image">
+              <% end %>
+            </div>
+            <div class="text-center pb-3 mb-3 border-bottom">
+              <h6 class="mt-3"><%= post.content %></h6>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="text-center">
+      <%= paginate @posts %>
+    </div>
+  <% else %>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <div class="text-center mt-5">
+          <% if post.image.present? %>
+            <img src=<%= post.image %> class="show-image">
+          <% else %>
+            <img src="/assets/noimage.png" class="show-image">
+          <% end %>
+          </div>
+          <div class="text-center pb-3 mb-3 border-bottom">
+            <h4 class="mt-5"><%= post.content %></h4>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="text-center">
+      <%= paginate @posts %>
+    </div>
+  <% end %>
+</div>

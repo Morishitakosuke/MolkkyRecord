@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: MolkkyRecord_production
-  username: MolkkyRecord
-  password: <%= ENV['MOLKKYRECORD_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+  host: <%= ENV.fetch("DATABASE_HOST") %>

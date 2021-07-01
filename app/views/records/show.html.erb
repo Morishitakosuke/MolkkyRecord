@@ -1,0 +1,124 @@
+<div class="container-fluid py-4 mw-md">
+  <div class="text-center mt-5">
+    <h4><i class="fas fa-crown"></i>大会名<i class="fas fa-crown"></i></h4>
+    <% if @record.title.present? %>
+      <span>~<%= @record.title %>~</span>
+    <% else %>
+      <span>~No title~</span>
+    <% end %>
+    <div class="mx-auto mt-3" id="map"></div>
+  </div>
+  <div class="text-center mt-3">
+    <h6><i class="fas fa-map-pin"></i> : <%= @record.place %></h6>
+  </div>
+  <table class="mt-3">
+    <tr>
+      <th class="text-center">チーム名</th><th class="text-center">チーム名</th>
+    </tr>
+    <tr>
+      <td class="bg-light"><%= @record.teamname %></td><td><%= @record.enemyteam %></td>
+    </tr>
+    <tr>
+      <th class="text-center">名前</th><th class="text-center">名前</th>
+    </tr>
+    <tr>
+      <td class="bg-light"><%= @record.name_a %></td><td><%= @record.enemyname_a %></td>
+    </tr>
+    <tr>
+      <td class="bg-light"><%= @record.name_b %></td><td><%= @record.enemyname_b %></td>
+    </tr>
+    <tr>
+      <td class="bg-light"><%= @record.name_c %></td><td><%= @record.enemyname_c %></td>
+    </tr>
+    <tr>
+      <th class="text-center">スコア</th><th class="text-center">スコア</th>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_1 %></td><td class="pl-2"><%= @record.enemyscore_1 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_2 %></td><td class="pl-2"><%= @record.enemyscore_2 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_3 %></td><td class="pl-2"><%= @record.enemyscore_3 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_4 %></td><td class="pl-2"><%= @record.enemyscore_4 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_5 %></td><td class="pl-2"><%= @record.enemyscore_5 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_6 %></td><td class="pl-2"><%= @record.enemyscore_6 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_7 %></td><td class="pl-2"><%= @record.enemyscore_7 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_8 %></td><td class="pl-2"><%= @record.enemyscore_8 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_9 %></td><td class="pl-2"><%= @record.enemyscore_9 %></td>
+    </tr>
+    <tr>
+      <td class="bg-light pl-2"><%= @record.score_10 %></td><td class="pl-2"><%= @record.enemyscore_10 %></td>
+    </tr>
+    <tr>
+      <th>合計</th><th>合計</th>
+    </tr>
+    <tr>
+      <td class="bg-light">
+        <% if @total_score > Const::WIN_SCORE %>
+          <%= @over_score %>
+        <% else %>
+          <%= @total_score %>
+        <% end %>
+      </td>
+      <td>
+        <% if @total_enemyscore > Const::WIN_SCORE %>
+          <%= @over_enemyscore %>
+        <% else %>
+          <%= @total_enemyscore %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+
+  <% if current_user&.id == @record.user_id %>
+    <div class="text-center mt-5">
+      <%= link_to "編集", edit_record_path(@record), class: "text-dark" %>
+      <%= link_to "削除", record_path(@record), method: :delete, class: "text-dark" %>
+    </div>
+  <% end %>
+
+  <%= link_to t("戻る"), :back, class: "text-center text-dark" %>
+</div>
+
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @record.latitude %>, lng: <%= @record.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @record.place %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLEMAP_API'] %>&callback=initMap"></script>

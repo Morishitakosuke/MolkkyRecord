@@ -1,0 +1,48 @@
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
+@import "bootstrap/dist/css/bootstrap.css";
+@import "bootstrap";
+@import "slick-theme"; 
+@import "slick";
+@import "layouts";
+@import "users";
+@import "posts";
+@import "comments";
+@import "follow_relationships";
+@import "records";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 55px; /* 固定ヘッダの高さ分 */
+}
+
+.mw-md {
+  max-width: 576px;
+}
+
+.mw-xl {
+  max-width: 1200px;
+}
+
+// フラッシュ用スタイル
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// kaminari
+
+.pagination {
+  justify-content: center;
+}

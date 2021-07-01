@@ -1,0 +1,58 @@
+// new
+.score-number li {
+  list-style: decimal;
+}
+
+// show
+table {
+  border: 2px solid black;
+  width: 100%;
+}
+
+tr {
+  height: 50px;
+  border-bottom: 1px solid black;
+  font-size: 16px;
+}
+
+th {
+  border-left: 1px solid black;
+  padding-left: 3px;
+  width: 50%;
+}
+
+td {
+  border-left: 1px solid black;
+  padding-left: 3px;
+}
+
+// _record
+.record-time {
+  font-size: 12px;
+  color: darkgray;
+  margin-bottom: -20px;
+}
+
+@media (max-width: 480px) {
+  .score-content {
+    font-size: 18px;
+  }
+
+  tr {
+    font-size: 12px;
+  }
+}
+
+// _maps
+
+#map {
+  width: 500px;
+  height: 200px;
+}
+
+@media (max-width: 480px) {
+  #map {
+    width: 300px;
+    height: 200px;
+  }
+}
