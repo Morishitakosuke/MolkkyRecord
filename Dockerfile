@@ -8,6 +8,7 @@ WORKDIR /MolkkyRecord
 COPY Gemfile /MolkkyRecord/Gemfile
 COPY Gemfile.lock /MolkkyRecord/Gemfile.lock
 RUN bundle install
+RUN mkdir -p tmp/sockets
 COPY . /MolkkyRecord
 
 COPY entrypoint.sh /usr/bin/
