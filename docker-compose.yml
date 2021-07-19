@@ -24,15 +24,10 @@ services:
       - public-data:/MolkkyRecord/public
       - tmp-data:/MolkkyRecord/tmp
       - log-data:/MolkkyRecord/log
-    ports:
-      - "3000:3000"
     # =========ローカルと本番切り替え===========
     # depends_on:
     #   - db
     # ======================================
-    stdin_open: true
-    tty: true
-    command: bundle exec rails server -b 0.0.0.0
     networks:
       - MolkkyRecord-network
   web:
@@ -52,7 +47,6 @@ volumes:
   tmp-data:
   log-data:
   mysql-data:
-    driver: local
 networks:
   MolkkyRecord-network:
     external: true
