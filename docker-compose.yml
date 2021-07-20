@@ -47,11 +47,11 @@ services:
       - app
     networks:
       - MolkkyRecord-network
-  volumes:
-    public-data:
-    tmp-data:
-    log-data:
-    mysql-data:
-  networks:
-    MolkkyRecord-network:
-      external: true
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  mysql-data:
+networks:
+  MolkkyRecord-network:
+    external: true
