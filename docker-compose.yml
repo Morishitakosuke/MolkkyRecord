@@ -37,7 +37,7 @@ services:
       - MolkkyRecord-network
   web:
     build:
-      context: ./nginx_docker
+      context: nginx_docker
     volumes:
       - public-data:/MolkkyRecord/public
       - tmp-data:/MolkkyRecord/tmp
