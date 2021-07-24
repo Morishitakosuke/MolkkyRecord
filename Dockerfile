@@ -9,6 +9,7 @@ COPY Gemfile /MolkkyRecord/Gemfile
 COPY Gemfile.lock /MolkkyRecord/Gemfile.lock
 RUN bundle install
 RUN mkdir -p tmp/sockets
+RUN mkdir -p tmp/pids
 COPY . /MolkkyRecord
 
 COPY entrypoint.sh /usr/bin/
