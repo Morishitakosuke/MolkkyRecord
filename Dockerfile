@@ -7,6 +7,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 WORKDIR /MolkkyRecord
 COPY Gemfile /MolkkyRecord/Gemfile
 COPY Gemfile.lock /MolkkyRecord/Gemfile.lock
+RUN gem install bundler
 RUN bundle install
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids

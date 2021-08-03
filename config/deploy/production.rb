@@ -49,9 +49,9 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-server "13.208.69.79", user: "Morishitakosuke", roles: %w{app db web},
-  ssh_options: {
-    keys: %w(~/.ssh/molkky.pem),
-    forward_agent: true,
-    auth_methods: %w(publickey),
-  }
+# server "13.208.69.79", user: "Morishitakosuke", roles: %w{app db web},
+#   ssh_options: {
+#     keys: %w(~/.ssh/molkky.pem),
+#     forward_agent: true,
+#     auth_methods: %w(publickey),
+#   }
