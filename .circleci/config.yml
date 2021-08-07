@@ -17,7 +17,6 @@ jobs:
             set -x
             docker network create MolkkyRecord-network
             docker-compose up -d
-            docker exec molkkyrecord_app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
       - run:
           name: Setup database
           command: |
