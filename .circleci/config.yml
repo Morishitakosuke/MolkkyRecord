@@ -18,9 +18,15 @@ jobs:
             docker network create MolkkyRecord-network
             docker-compose up -d
       - run:
-          name: Setup database
+          name: Setup create database
           command: |
-            docker-compose exec app molkkyrecord bash -c 'yes n | bundle exec rails g db:migrate'
+            set -x
+            docker-compose exec app rails db:create RAILS_ENV=test
+      - run:
+          name: Setup migrate database 
+          command: |
+            set -x
+            docker-compose exec app rails db:migrate RAILS_ENV=test
       - run:
           name: Run rspec
           command: docker-compose exec app molkkyrecord rspec
