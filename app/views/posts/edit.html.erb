@@ -1,9 +1,9 @@
 <div class="container-fluid py-4 mw-md">
   <div class="text-center">
   <% if @post.image.present? %>
-    <img src=<%= @post.image %> class="icon_image">
+    <img src=<%= @post.image %> class="post_edit_image">
   <% else %>
-    <img src="/assets/noimage.png" class="icon_image">
+    <img src="/assets/noimage.png" class="post_edit_image">
   <% end %>
 </div>
   <%= form_with model: @post, url: post_path(@post), method: :patch, local: true do |f| %>
