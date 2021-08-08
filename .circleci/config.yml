@@ -15,6 +15,7 @@ jobs:
           name: Start containers and verify it is working
           command: |
             set -x
+            docker-compose build
             docker network create MolkkyRecord-network
             docker-compose up -d
       - run:
