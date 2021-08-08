@@ -12,22 +12,29 @@ jobs:
           command: |
             echo "export COMPOSE_FILE=docker-compose.yml" >> $BASH_ENV
       - run:
-          name: Start containers and verify it is working
+          name: Containers build
           command: |
             set -x
             docker-compose build
+      - run:
+          name: Create network
+          command: |
             docker network create MolkkyRecord-network
+      - run:
+          name: Start containers
+          command: |
+            set -x
             docker-compose up -d
       - run:
           name: Setup create database
           command: |
             set -x
-            docker-compose exec app rails db:create RAILS_ENV=test
+            docker-compose exec app rails db:create
       - run:
           name: Setup migrate database 
           command: |
             set -x
-            docker-compose exec app rails db:migrate RAILS_ENV=test
+            docker-compose exec app rails db:migrate
       - run:
           name: Run rspec
           command: docker-compose exec app molkkyrecord rspec
