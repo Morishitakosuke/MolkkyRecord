@@ -1,5 +1,16 @@
 version: '3'
 services:
+  db:
+    image: mysql:5.7.34
+    environment:
+      RAILS_ENV: test
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - MolkkyRecord-network
   app:
     build: .
     command: bundle exec puma -C config/puma.rb -e production
@@ -8,6 +19,8 @@ services:
       - public-data:/MolkkyRecord/public
       - tmp-data:/MolkkyRecord/tmp
       - log-data:/MolkkyRecord/log
+    depends_on:
+      - db
     stdin_open: true
     tty: true
     networks:
