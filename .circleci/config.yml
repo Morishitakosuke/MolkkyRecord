@@ -25,6 +25,7 @@ jobs:
           command: |
             set -x
             docker-compose up -d
+      - run: mv config/database.yml.ci config/database.yml
       - run:
           name: Setup create database
           command: |
