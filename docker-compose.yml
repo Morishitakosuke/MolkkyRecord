@@ -1,16 +1,5 @@
 version: '3'
 services:
-  db:
-    image: mysql:5.7.34
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-    ports:
-      - '3306:3306'
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - mysql-data:/var/lib/mysql
-    networks:
-      - MolkkyRecord-network
   app:
     build: .
     command: bundle exec puma -C config/puma.rb -e production
@@ -19,6 +8,13 @@ services:
       - public-data:/MolkkyRecord/public
       - tmp-data:/MolkkyRecord/tmp
       - log-data:/MolkkyRecord/log
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_PORT=3306
+      - DB_HOST=<%= ENV.fetch("DB_HOST) %>
+      - DB_DATABASE=<%= ENV.fetch("DB_DATABASE") %>
+      - DB_USERNAME=<%= ENV.fetch("DB_USERNAME") %>
+      - DB_PASSWORD=<%= ENV.fetch("DB_PASSWORD") %>
     stdin_open: true
     tty: true
     networks:
