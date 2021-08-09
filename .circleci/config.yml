@@ -42,7 +42,7 @@ jobs:
             docker-compose up -d
       - run:
           name: Run rspec
-          command: docker-compose exec app bin/bundle exec rspec
+          command: docker-compose exec app bundle exec rspec
       - run:
           name: Down containers
           command: |
