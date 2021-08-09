@@ -36,8 +36,18 @@ jobs:
             set -x
             docker-compose run app rails db:create db:migrate
       - run:
+          name: Start containers
+          command: |
+            set -x
+            docker-compose up -d
+      - run:
           name: Run rspec
           command: docker-compose exec app bin/bundle exec rspec
+      - run:
+          name: Down containers
+          command: |
+            set -x
+            docker-compose down
 
   rubocop:
     working_directory: ~/Molkkyrecord
