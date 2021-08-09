@@ -26,6 +26,16 @@ jobs:
             set -x
             docker-compose up -d
       - run:
+          name: Create db
+          command: |
+            set -x
+            docker-compose exec app rails db:create
+      - run:
+          name: Migrate db 
+          command: |
+            set -x
+            docker-compose exec app rails db:migrate
+      - run:
           name: Run rspec
           command: docker-compose exec app rspec
 
