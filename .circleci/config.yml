@@ -21,17 +21,13 @@ jobs:
           command: |
             docker network create MolkkyRecord-network
       - run:
-          name: Create db
-          command: |
-            docker run --name mydb -d -e MYSQL_ROOT_PASSWORD=password -it mysql:5.7.34
-      - run:
           name: Start containers
           command: |
             set -x
             docker-compose up -d
       - run:
           name: Run rspec
-          command: docker-compose exec app molkkyrecord rspec
+          command: docker-compose exec app rspec
 
   rubocop:
     working_directory: ~/Molkkyrecord
