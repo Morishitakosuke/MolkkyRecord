@@ -3,7 +3,7 @@ jobs:
   test:
     machine:
       image: circleci/classic:edge
-    working_directory: ~/workdir
+    working_directory: ~/MolkkyRecord
     steps:
       - checkout
       - run:
