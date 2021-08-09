@@ -1,18 +1,5 @@
 version: '3'
 services:
-  db:
-    image: mysql:5.7.34
-    environment:
-      - DB_HOST=<%= ENV.fetch("DB_HOST) %>
-      - DB_DATABASE=<%= ENV.fetch("DB_DATABASE") %>
-      - DB_USERNAME=<%= ENV.fetch("DB_USERNAME") %>
-      - DB_PASSWORD=<%= ENV.fetch("DB_PASSWORD") %>
-    ports:
-      - '3306:3306'
-    volumes:
-      - mysql-data:/var/lib/mysql
-    networks:
-      - MolkkyRecord-network
   app:
     build: .
     command: bundle exec puma -C config/puma.rb -e production
@@ -21,8 +8,6 @@ services:
       - public-data:/MolkkyRecord/public
       - tmp-data:/MolkkyRecord/tmp
       - log-data:/MolkkyRecord/log
-    depends_on:
-      - db
     stdin_open: true
     tty: true
     networks:
