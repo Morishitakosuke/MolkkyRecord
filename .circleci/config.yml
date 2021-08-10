@@ -69,8 +69,8 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:  
-            - "30:9f:2b:2d:04:00:4c:ad:3a:ec:dd:f1:1d:24:fa:80"
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /MolkkyRecord && git pull'
+            - "41:c4:23:9d:0a:a7:0c:3d:01:14:3a:fa:ee:cd:23:1a"
+      - run: ssh ${USER_NAME}@${HOST_NAME} "cd /MolkkyRecord && git pull"
       - run: docker-compose build
       - run: docker-compose run app rails assets:precompile RAILS_ENV=production
       - run: docker-compose up -d
