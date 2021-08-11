@@ -70,7 +70,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:  
             - "b9:f2:b7:5a:ac:66:cc:08:2d:ec:43:0a:46:a7:a3:43"
-      - run: ssh -p $PORT $USER_NAME@$HOST_NAME "cd /MolkkyRecord && git pull"
+      - run: ssh -p $PORT $USER_NAME@$HOST_NAME "cd /MolkkyRecord && sudo git pull"
       - run: docker-compose build
       - run: docker-compose run app rails assets:precompile RAILS_ENV=production
       - run: docker-compose up -d
