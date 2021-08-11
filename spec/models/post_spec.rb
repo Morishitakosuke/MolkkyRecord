@@ -3,12 +3,11 @@ require "rails_helper"
 describe Post do
   before do
     @post = FactoryBot.create(:post)
-    @post.image = fixture_file_upload("app/assets/images/test.jpg")
   end
 
   describe "投稿の保存" do
     context "投稿が保存できる場合" do
-      it "つぶやきが入力されていれば投稿できる" do
+      it "全てのフォームに情報が入力されていれば投稿できる" do
         expect(@post).to be_valid
       end
 
