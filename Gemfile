@@ -5,7 +5,7 @@ ruby '2.6.7'
 
 gem 'rails', '~> 6.0.0'
 gem 'mysql2', '>= 0.4.4'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3.8'
 gem 'sass-rails', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
@@ -33,11 +33,6 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'rubocop-airbnb'
-  gem "capistrano", "~> 3.10", require: false
-  gem "capistrano-rails", "~> 1.6", require: false
-  gem 'capistrano-rbenv', '~> 2.2'
-  gem 'capistrano-rbenv-vars', '~> 0.1'
-  gem 'capistrano3-puma', "3.1.1"
 end
 
 group :development do
