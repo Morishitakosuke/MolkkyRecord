@@ -80,18 +80,9 @@ jobs:
           command: |
             docker network create MolkkyRecord-network
       - run:
-          name: assets:precompile
-          command: |
-            docker-compose run app rails assets:precompile RAILS_ENV=production
-      - run:
           name: Start containers
           command: |
             docker-compose up -d
-      - run:
-          name: Create db
-          command: |
-            set -x
-            docker-compose run app rails db:create db:migrate RAILS_ENV=production
 
 orbs:
   build-tools: circleci/build-tools@2.6.3
