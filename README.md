@@ -6,7 +6,7 @@
 # URL
 https://molkkyrecord.com<br>
 <br>
-<img height="500" alt="スクリーンショット 2021-08-16 23 38 10" src="https://user-images.githubusercontent.com/83393517/129746432-ae3bece5-a095-4982-b128-e438a25e561b.png">
+<img height="300" alt="スクリーンショット 2021-08-16 23 38 10" src="https://user-images.githubusercontent.com/83393517/129746432-ae3bece5-a095-4982-b128-e438a25e561b.png">
 
 
 # なぜ作成したか
@@ -23,6 +23,9 @@ https://molkkyrecord.com<br>
 ・投稿時の住所位置をGoogleMapにピン留め表示<br>
 ・スコア入力<br>
 ・スコアの編集・削除<br>
+<br>
+
+![gamen1](https://user-images.githubusercontent.com/83393517/129909615-bfa7c862-5032-4f7d-9dc8-9d658d00b7f2.gif)<br>
 <br>
 ### 投稿機能
 ・日々のモルック情報(画像、つぶやき)を投稿<br>
@@ -45,6 +48,9 @@ https://molkkyrecord.com<br>
 ・ページネーション機能（kaminari）<br>
 ・モルックの簡易ルール説明(非同期通信)
 ・HTTPS通信(AWS Certificate Manager)<br>
+<br>
+![gamen2](https://user-images.githubusercontent.com/83393517/129909834-b6b0f9b6-6251-43c6-b361-be83a37125c4.gif)<br>
+
 
 # 環境・使用技術
 ### フロントエンド
