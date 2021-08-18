@@ -85,7 +85,7 @@ https://molkkyrecord.com<br>
 ・GitHubの活用（プルリクエスト、マージ等）<br>
 
 ### インフラ構成図
-![構成図](https://user-images.githubusercontent.com/83393517/129927057-39c61581-8d23-4c5f-b166-3407f91842c4.png)<br>
+![構成図](https://user-images.githubusercontent.com/83393517/129928598-03e595ea-1577-44fc-be9a-814a852a31bc.png)<br>
 
 
 # 使用方法
