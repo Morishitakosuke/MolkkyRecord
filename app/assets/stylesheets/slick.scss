@@ -62,6 +62,7 @@
     }
 }
 .slick-slide {
+    display: none;
     float: left;
     height: 100%;
     min-height: 1px;
@@ -74,8 +75,6 @@
     &.slick-loading img {
         display: none;
     }
-
-    display: none;
 
     &.dragging img {
         pointer-events: none;
@@ -114,10 +113,6 @@
     width: 40vw;
     max-height: 350px;
     max-width: 450px;
-}
-
-.slick-initialized {
-    display: block;
 }
 
 @media (max-width: 800px) {

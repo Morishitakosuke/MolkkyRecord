@@ -17,6 +17,13 @@
   </head>
 
   <body>
+    <div id="loading">
+      <div id="loading_box">
+        <div class="loading-one animation_loading">
+          <p class="loading-txt">Loading</p>
+        </div>
+      </div>
+    </div>
     <%= render "layouts/header" %>
     <div class="container-fluid py-4 <%= devise_controller? ? "mw-md" : "mw-xl" %>">
       <%= render "layouts/flash_messages" %>

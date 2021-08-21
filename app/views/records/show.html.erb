@@ -68,11 +68,7 @@
     </tr>
     <tr>
       <td class="bg-light">
-        <% if @total_score > Const::WIN_SCORE %>
-          <%= @over_score %>
-        <% else %>
-          <%= @total_score %>
-        <% end %>
+        <%= @total_score %>
       </td>
       <td>
         <% if @total_enemyscore > Const::WIN_SCORE %>

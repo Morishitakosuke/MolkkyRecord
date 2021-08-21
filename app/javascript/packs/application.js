@@ -24,6 +24,7 @@ require("./slider")
 require("./menu")
 require("./modal")
 require("./bootstrap_custom.js")
+require("./loading")
 
 import "jquery/dist/jquery.js"
 import "popper.js/dist/popper.js"

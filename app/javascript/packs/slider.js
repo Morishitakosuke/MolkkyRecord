@@ -4,7 +4,7 @@ document.addEventListener("turbolinks:load" , function () {
         dots: true,
         autoplay: true,
         autoplaySpeed: 4000,
-        arrows: true,
+        arrows: false,
     });
   })
 })
